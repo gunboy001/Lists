@@ -152,3 +152,13 @@
 -Nixie tubes and stuff: https://threeneurons.wordpress.com/miscellaneous-projects/improvised-tube%20sockets/
   https://threeneurons.wordpress.com/nixie-power-supply/
   https://threeneurons.wordpress.com/links/data-sheets/
+
+-Some git stuff:
+  Creating a repo and pushing the first commit: "https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/"
+    basically it's a matter of defining the remote (origin) repo "git remote add origin <repo URL>"
+    committing the changes in local repo "git commit -m "message" "
+    pushing before first pull "git pull origin master --allow-unrelated-histories" the last part is just to merge the repos (if needed)
+    and finally pushing the changes "git push origin master", or in atom just publish
+  Using 2 factor auth. in commad line and atom: "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/"
+    basically you have to use a access token instead of the password, these are unique and you can only
+    see them once, so be careful with them!
