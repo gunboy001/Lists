@@ -1,0 +1,6 @@
+    --/ List of tools made for decrypting hashes \--
+
+- hashcat
+- john the ripper -> john / johnny
+- cowpatty
+- aircrack-ng

@@ -1,0 +1,154 @@
+-Qt for wayland requires qt5-wayland package and "export QT_QPA_PLATFORM=wayland"
+
+-You have and SDR module with the required programs and kernel modules
+
+-You have a smart card reader and to enable it you do "systemctl start pcscd.service"
+  or "systemctl enable pcscd.service" to enable it permanently, also to
+  use it there's "pcsc_tools" with the "pcsc_scan" utility
+
+-You have a mobile data card but you still don't know how to use it, the closest you've got to figuring
+  it out is: "https://wiki.archlinux.org/index.php/ThinkPad_mobile_internet"
+
+-For hard drives you not only have to unmount them but also to eject them with a right click (Gnome)
+
+-If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
+
+-"https://www.iplocation.net/" is pretty useful
+
+-YOU HAVE MACCHANGER so use it :) [it lets you change your MAC address]
+
+-Wifite2 works much better than wifite "https://github.com/derv82/wifite2"
+
+-The network interfaces are named "wlp3s0" for the internal one and "wlp0s20u2" for the alpha networks msfconsole
+
+-Never forgetti the memos on your phone
+
+-Do not panic use the WiGLE maps to discover wifis for later use ;)
+
+-You still have tor and "arm" to monitor it
+
+-TRUST NO ONE
+
+-IP forwarding: "https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)" more precisely:
+  "echo 1 > /proc/sys/net/ipv4/ip_forward" thank me later
+
+-Docker is pretty cool you should use it, https://www.kali.org/news/official-kali-linux-docker-images/
+  also works with wifite2, it basically is a shell-oriented low-weight high-performance virtual machine
+  wich can run prebuilt docker images or your personal docker images. Docs: https://docs.docker.com/
+
+-Incoming pac-bomb!! "pacman -Syy" update repos, "pacman -Su" update packages, "pacman -Qdtq" check unused
+  packages, "pacman -R" remove package, "pacman -S" install package, "pacman -R $(pacman -Qdtq)" remove unused
+  packages, "pacman -Rns" remove packages with dependencies, "pacman -Ql" look at package files
+  "pacman -Qqe" list all installed packages
+
+-"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
+
+-GREP or "grep" is the most beautiful thing in the fucking universe, use it to filter results like:
+  "ps ax | grep whatyouwant" and it will find it another example is "dmesg | grep whatyouwant"
+  the | is used to pipe the output in another program like, can you guess it? grep
+
+-You use "ps ax" to view all processes and their UIDs
+
+-"https://wiki.archlinux.org/index.php/systemd" just helpful
+
+-Remember: the archlinux wiki is your lord and savior
+
+-To use bluetooth start the "bluetooth.service" service then refer to:
+  https://wiki.archlinux.org/index.php/Bluetooth_headset
+  https://wiki.archlinux.org/index.php/bluetooth
+
+-https://github.com/trustedsec/social-engineer-toolkit
+
+-You have a one year subscription to PIA
+
+-Kismet requires to be started with "kismet -c ifacemon" where ifacemon is your interface in monitor mode
+
+-Surface programs: Leonardo (drawing), Dolby access (you payed for it)
+
+-Remember that you have a GL-AR150 mini router with tor, openvpn support and that it is based on openwrt, also:
+  https://github.com/d1slact0r/pineapple-ar150
+
+-Man this thing is expanding quickly
+
+-Make some bash scripts you idiot, oh and this could be useful http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
+
+-Upon installing linux, to add locales uncomment them in /etc/locale.gen and then run "locale-gen" as sudo
+  to search for fonts just open https://wiki.archlinux.org/index.php/Localization
+  Note that you need japanese and chinese locales and fonts to display those characters correctly
+
+-You can run linux (elinux, microclinux, debian and others) on STM32 !!
+
+-Install "mesa", "lib32-mesa" and "vulkan-intel" for the graphics you dumb fuck
+  "https://wiki.archlinux.org/index.php/intel_graphics"
+
+-To run .jar files in cli you must use "java -jar"
+
+-To list all partitions "sudo fdisk -l"
+
+-To check a disk's health you need "smartmontools", first check system compatibility with "sudo smartctl -c /dev/sdX"
+  then either do a short test "sudo smartctl -t short /dev/sdX" or a long test "sudo smartctl -t long /dev/sdX"
+  lastly do "sudo smartctl -H /dev/sdX" to get the results
+
+-https://github.com/spacehuhn
+
+-You are gefährliches halbwissen
+
+-pikaur (AUR) to manage AUR packages
+
+-Problem with xtensa-lx106 gcc for compiling esp8266 programs:
+ "https://community.zerynth.com/t/can-not-build-wifi-example-on-nodemcu-v3-error-building-native-c-driver/1280"
+
+-Speeduino, the arduino based ECU (engine management unit) "https://speeduino.com/wiki/index.php/Speeduino"
+
+-If facing compiling errors in zerynth, manually recompile the copiler for the board in ""~/.zerynth2/sys"
+  for example replacing the xtensa-lx106 compiler (esp8266) goes:
+  1-Move the old compiler folder somewhere safe (~/.zerynth2/sys/xtensa-lx106)
+  2-Clone and compile (as standalone) new compiler in a temporary folder, guide here -> "http://domoticx.com/sdk-esp8266-xtensa-architecture-toolchain/"
+  3-Move the newly created compiler folder (xtensa-lx106-elf) in ~/.zerynth2/sys and rename it as the original one (xtensa-lx106/)
+  4-Copy the old package.json in the new compiler folder
+  Better yet is to wait for an official fix and report the bug on the troubleshooting section
+  Also the same thing has to be done with the xtensa-lx6 compiler (esp32)
+  "https://dl.espressif.com/doc/esp-idf/latest/get-started/linux-setup.html"
+
+-Pay attention of those sneaky KDE bastards, mostly everything which begins with k is EVIL
+
+-To fix arduino permissions "ls -la /dev/tty*" and see which group TTYs are in, then add yourself to that group:
+  "usermod -a -G examplegroup exampleusername" or just use "$USER" to add current user, then reboot.
+  Source in: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
+
+-To theme your gnome download the theme packages at "https://www.gnome-look.org/" and unzip them, then depending if it is an icon
+  theme or an normal theme place them in "/usr/share/icons" or "/usr/share/themes" accordingly
+
+-Simba https://github.com/eerimoq/simba
+
+-To add executables you have to add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
+  "https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path"
+  or from "https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere"
+  quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
+  If you want to change it permanently add export PATH=$PATH:</path/to/file> to your ~/.bashrc file (just at the end is fine)."
+
+-Use "clamav" as antivirus: "https://wiki.archlinux.org/index.php/ClamAV", to update use "freshclam" as sudo
+  and to scan "clamscan --recursive --infected /path/to/something"
+
+-If pacman panics try to remove the database lock file "sudo rm -rf /var/lib/pacman/db.lck"
+
+-If by nay chance you need a key's datasheet, like for copying it with just a photo (more on that later ;),
+  check out silca's "the catalogue" it tell dimensions and the catalog's page of the key: https://thecatalogue.silca.biz/
+
+-Power cord names and standards: http://community.fs.com/blog/small-power-cord-big-difference.html
+
+-Circuit design guide for DC/DC converters (1/10): https://www.torexsemi.com/technical-support/application-note/design-guide-for-dcdc-converter/whats-dcdc-converters/
+
+-It may be useful to download some sites that I list here on top of the whole arch wiki and wikipedia
+  a guide is found here: https://www.youtube.com/watch?v=LjeQKE_tEcA&index=4&t=0s&list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a
+
+-Some of my own playlists:
+  Hacking "https://www.youtube.com/playlist?list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a"
+  Thing to do "https://www.youtube.com/playlist?list=PLY_0BKX9I82bwbEh80pKXGSkiNt_2xgUP"
+  Linux useful (WIP) "https://www.youtube.com/playlist?list=PLY_0BKX9I82ZCWMlV6N0d9IxbQt32Cvs0"
+  CR-10 "https://www.youtube.com/playlist?list=PLY_0BKX9I82aiEm96d0tvK3KWw1opw6dR"
+  Electronic basics "https://www.youtube.com/playlist?list=PLY_0BKX9I82b5DYjdoY-iGHgfqH6Msv4A"
+
+-Nixie tubes and stuff: https://threeneurons.wordpress.com/miscellaneous-projects/improvised-tube%20sockets/
+  https://threeneurons.wordpress.com/nixie-power-supply/
+  https://threeneurons.wordpress.com/links/data-sheets/

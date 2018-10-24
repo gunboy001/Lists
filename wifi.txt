@@ -1,0 +1,16 @@
+    --/ List of tools made for collecting information on wifi networks \--
+
+- nmap / zenmap (GUI)   // Used to map networks
+- airodump-ng           // Monitor packages
+- airmon-ng             // Enable monitor mode on wifi cards
+- aireplay-ng           // Deauth attacks
+- mdk3                  // Different deauth attacks
+- reaver                // Pixie dust attacks and more
+- bully                 // Pixie dust attacks and more
+- aircrack-ng           // Crack / create WEP and WPA hashes
+
+        --/ Scripts \--
+- wifite                // Collection of tools mainly aimed for cracking wifi networks
+- airgeddon             // Collection of tools for cracking, decrypting and attacking wifi networks
+- fluxion               // Collection of tools aimed to create fake APs (also in spoof)
+- wifiphisher           // Phish APs and create fake auth pages like fluxion but better (also in spoof)

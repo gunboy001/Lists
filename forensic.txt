@@ -1,0 +1,5 @@
+    --/ Information gathering tools \--
+
+- maltego                 // Information gathering and organization tool
+- nmap / zenmap           // Network mapping tool
+- wireshark               // Network traffic sniffer

