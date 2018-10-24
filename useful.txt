@@ -35,3 +35,5 @@
 -To check system logs use "journalctl" (you must have systemctl), some guides:
   https://wiki.archlinux.org/index.php/Systemd#Journal
   https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
+
+-https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
