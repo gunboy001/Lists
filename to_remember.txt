@@ -169,3 +169,6 @@
 
 -Geiger counter stuff: "https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported"
   Best: SBM-20 and the equivalent STS-5
+
+
+-Cool oscilloscope: Siglent SDS1202X-E 200MHz
