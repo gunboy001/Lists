@@ -162,3 +162,6 @@
   Using 2 factor auth. in commad line and atom: "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/"
     basically you have to use a access token instead of the password, these are unique and you can only
     see them once, so be careful with them!
+
+-Arietta G25 board (Atmega 400MHz, 128 or 256 Mb of RAM, 20 pin, I2C, SPI, serial, USB, SD card slot) "https://www.acmesystems.it/arietta"
+  But most importantly it runs ARCH!! EXCUSE ME WHAT THE FUCK?: "https://archlinuxarm.org/platforms/armv5/arietta-g25"
