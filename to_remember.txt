@@ -165,3 +165,6 @@
 
 -Arietta G25 board (Atmega 400MHz, 128 or 256 Mb of RAM, 20 pin, I2C, SPI, serial, USB, SD card slot) "https://www.acmesystems.it/arietta"
   But most importantly it runs ARCH!! EXCUSE ME WHAT THE FUCK?: "https://archlinuxarm.org/platforms/armv5/arietta-g25"
+
+-Geiger counter stuff: "https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported"
+  Best: SBM-20 and the equivalent STS-5
