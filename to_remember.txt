@@ -51,7 +51,7 @@
 
 -"https://wiki.archlinux.org/index.php/systemd" just helpful
 
--Remember: the archlinux wiki is your lord and savior
+-Remember: the ArchLinux wiki is your lord and savior
 
 -To use bluetooth start the "bluetooth.service" service then refer to:
   https://wiki.archlinux.org/index.php/Bluetooth_headset
@@ -76,7 +76,7 @@
   to search for fonts just open https://wiki.archlinux.org/index.php/Localization
   Note that you need japanese and chinese locales and fonts to display those characters correctly
 
--You can run linux (elinux, microclinux, debian and others) on STM32 !!
+-You can run Linux (elinux, microclinux, debian and others) on STM32 !!
 
 -Install "mesa", "lib32-mesa" and "vulkan-intel" for the graphics you dumb fuck
   "https://wiki.archlinux.org/index.php/intel_graphics"
@@ -98,9 +98,9 @@
 -Problem with xtensa-lx106 gcc for compiling esp8266 programs:
  "https://community.zerynth.com/t/can-not-build-wifi-example-on-nodemcu-v3-error-building-native-c-driver/1280"
 
--Speeduino, the arduino based ECU (engine management unit) "https://speeduino.com/wiki/index.php/Speeduino"
+-Speeduino, the Arduino based ECU (engine management unit) "https://speeduino.com/wiki/index.php/Speeduino"
 
--If facing compiling errors in zerynth, manually recompile the copiler for the board in ""~/.zerynth2/sys"
+-If facing compiling errors in zerynth, manually recompile the compiler for the board in ""~/.zerynth2/sys"
   for example replacing the xtensa-lx106 compiler (esp8266) goes:
   1-Move the old compiler folder somewhere safe (~/.zerynth2/sys/xtensa-lx106)
   2-Clone and compile (as standalone) new compiler in a temporary folder, guide here -> "http://domoticx.com/sdk-esp8266-xtensa-architecture-toolchain/"
@@ -133,15 +133,15 @@
 -If pacman panics try to remove the database lock file "sudo rm -rf /var/lib/pacman/db.lck"
 
 -If by nay chance you need a key's datasheet, like for copying it with just a photo (more on that later ;),
-  check out silca's "the catalogue" it tell dimensions and the catalog's page of the key: https://thecatalogue.silca.biz/
+  check out Silca's "the catalogue" it tell dimensions and the catalog's page of the key: https://thecatalogue.silca.biz/
 
 -Power cord names and standards: http://community.fs.com/blog/small-power-cord-big-difference.html
 
 -Circuit design guide for DC/DC converters (1/10): https://www.torexsemi.com/technical-support/application-note/design-guide-for-dcdc-converter/whats-dcdc-converters/
 
--It may be useful to download some sites that I list here on top of the whole arch wiki and wikipedia
+-It may be useful to download some sites that I list here on top of the whole arch wiki and Wikipedia
   a guide is found here: https://www.youtube.com/watch?v=LjeQKE_tEcA&index=4&t=0s&list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a
-  and also an official guide from wikipedia itself: https://en.wikipedia.org/wiki/Wikipedia:Database_download
+  and also an official guide from Wikipedia itself: https://en.wikipedia.org/wiki/Wikipedia:Database_download
 
 -Some of my own playlists:
   Hacking "https://www.youtube.com/playlist?list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a"
@@ -160,7 +160,7 @@
     committing the changes in local repo "git commit -m "message" "
     pushing before first pull "git pull origin master --allow-unrelated-histories" the last part is just to merge the repos (if needed)
     and finally pushing the changes "git push origin master", or in atom just publish
-  Using 2 factor auth. in commad line and atom: "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/"
+  Using 2 factor auth. in command line and atom: "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/"
     basically you have to use a access token instead of the password, these are unique and you can only
     see them once, so be careful with them!
 
