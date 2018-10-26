@@ -1,6 +1,6 @@
     --/ List of tools made to sniff traffic on networks \--
 
 - wireshark                     // Sniff packets on networks
-- mitmf                         // Man In The Middle Framework framework for various mit attacks (also in spoof)
+- mitmf                         // Man In The Middle Framework framework for various mitm attacks (also in spoof)
 - ferret/ferret-sidejack:i386   // Sniff cookies (outdated) (32 bit only "dpkg --add-architecture i386")
 - ettercap                      // MITM attacks (also in spoof)
