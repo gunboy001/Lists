@@ -3,3 +3,4 @@
 - maltego                 // Information gathering and organization tool
 - nmap / zenmap           // Network mapping tool
 - wireshark               // Network traffic sniffer
+- theharvester            // Employee discovery, mail discovery and pgp verification tool, among other useful stuff
