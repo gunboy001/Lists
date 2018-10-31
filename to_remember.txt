@@ -173,6 +173,7 @@
 -Cool oscilloscope: Siglent SDS1202X-E 200MHz
 
 -Powertop usage:
+  Arch page: https://wiki.archlinux.org/index.php/powertop
   To start powertop use "sudo powertop"
   For the first calibration use "sudo powertop --calibrate", note that it takes a few minutes and during
     that time the screen may go (it does) black for a few minutes too, just let it run.
@@ -180,4 +181,8 @@
     to make the auto-tune start at boot refer to the Arch wiki or "how to create a sysemd service"
   Note that in order to apply changes and stuff you have to leave it running for some time to let it
     take its measures and stuff
-  Arch page: https://wiki.archlinux.org/index.php/powertop
+
+-Power management:
+  Arch page: https://wiki.archlinux.org/index.php/Power_management#Power_management_with_systemd
+  To change the actions to take when power button or lid switch events occur:
+    modify the conf. file at /etc/systemd/logind.conf or /etc/systemd/logind.conf.d/*.conf
