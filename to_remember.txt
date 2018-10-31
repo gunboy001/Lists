@@ -27,7 +27,8 @@
 
 -TRUST NO ONE
 
--IP forwarding: "https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)" more precisely:
+-IP forwarding:
+  Arch page: https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)
   "echo 1 > /proc/sys/net/ipv4/ip_forward" thank me later
 
 -Docker is pretty cool you should use it, https://www.kali.org/news/official-kali-linux-docker-images/
@@ -61,9 +62,10 @@
 
 -Remember: the ArchLinux wiki is your lord and savior
 
--To use bluetooth start the "bluetooth.service" service then refer to:
-  https://wiki.archlinux.org/index.php/Bluetooth_headset
-  https://wiki.archlinux.org/index.php/bluetooth
+-Bluetooth usage:
+  Start the "bluetooth.service" service then refer to:
+    https://wiki.archlinux.org/index.php/Bluetooth_headset
+    https://wiki.archlinux.org/index.php/bluetooth
 
 -https://github.com/trustedsec/social-engineer-toolkit
 
@@ -133,10 +135,12 @@
 
 -Simba https://github.com/eerimoq/simba
 
--To add executables you have to add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
-  "https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path"
-  or from "https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere"
-  quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
+-Adding executables and shortcuts:
+  Refers to:
+    https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path
+    https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere
+  You have to add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
+  Quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
   If you want to change it permanently add export PATH=$PATH:</path/to/file> to your ~/.bashrc file (just at the end is fine)."
 
 -Use "clamav" as antivirus: "https://wiki.archlinux.org/index.php/ClamAV", to update use "freshclam" as sudo
