@@ -50,7 +50,8 @@
 
 -"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
 
--GREP or "grep" is the most beautiful thing in the fucking universe, use it to filter results like:
+-GREP basics:
+  GREP or "grep" is the most beautiful thing in the fucking universe, use it to filter results like:
   "ps ax | grep whatyouwant" and it will find it another example is "dmesg | grep whatyouwant"
   the | is used to pipe the output in another program like, can you guess it? grep
 
@@ -107,24 +108,28 @@
 
 -Speeduino, the Arduino based ECU (engine management unit) "https://speeduino.com/wiki/index.php/Speeduino"
 
--If facing compiling errors in zerynth, manually recompile the compiler for the board in ""~/.zerynth2/sys"
+-Recompiling compilers for zerynth:
+  If facing compiling errors in zerynth, manually recompile the compiler for the board in ""~/.zerynth2/sys"
   for example replacing the xtensa-lx106 compiler (esp8266) goes:
-  1-Move the old compiler folder somewhere safe (~/.zerynth2/sys/xtensa-lx106)
-  2-Clone and compile (as standalone) new compiler in a temporary folder, guide here -> "http://domoticx.com/sdk-esp8266-xtensa-architecture-toolchain/"
-  3-Move the newly created compiler folder (xtensa-lx106-elf) in ~/.zerynth2/sys and rename it as the original one (xtensa-lx106/)
-  4-Copy the old package.json in the new compiler folder
+    1-Move the old compiler folder somewhere safe (~/.zerynth2/sys/xtensa-lx106)
+    2-Clone and compile (as standalone) new compiler in a temporary folder, guide here -> "http://domoticx.com/sdk-esp8266-xtensa-architecture-toolchain/"
+    3-Move the newly created compiler folder (xtensa-lx106-elf) in ~/.zerynth2/sys and rename it as the original one (xtensa-lx106/)
+    4-Copy the old package.json in the new compiler folder
   Better yet is to wait for an official fix and report the bug on the troubleshooting section
   Also the same thing has to be done with the xtensa-lx6 compiler (esp32)
   "https://dl.espressif.com/doc/esp-idf/latest/get-started/linux-setup.html"
 
 -Pay attention of those sneaky KDE bastards, mostly everything which begins with k is EVIL
 
--To fix arduino permissions "ls -la /dev/tty*" and see which group TTYs are in, then add yourself to that group:
+-Fixing Arduino permissions:
+  Source: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
+  "ls -la /dev/tty*" and see which group TTYs are in, then add yourself to that group:
   "usermod -a -G examplegroup exampleusername" or just use "$USER" to add current user, then reboot.
-  Source in: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
 
--To theme your gnome download the theme packages at "https://www.gnome-look.org/" and unzip them, then depending if it is an icon
-  theme or an normal theme place them in "/usr/share/icons" or "/usr/share/themes" accordingly
+-Theming gnome:
+  download the theme packages at "https://www.gnome-look.org/" and unzip them
+  then depending if it is an icon theme or an normal theme place them in
+    "/usr/share/icons" or "/usr/share/themes" accordingly
 
 -Simba https://github.com/eerimoq/simba
 
@@ -155,7 +160,8 @@
   CR-10 "https://www.youtube.com/playlist?list=PLY_0BKX9I82aiEm96d0tvK3KWw1opw6dR"
   Electronic basics "https://www.youtube.com/playlist?list=PLY_0BKX9I82b5DYjdoY-iGHgfqH6Msv4A"
 
--Nixie tubes and stuff: https://threeneurons.wordpress.com/miscellaneous-projects/improvised-tube%20sockets/
+-Nixie tubes and stuff:
+  https://threeneurons.wordpress.com/miscellaneous-projects/improvised-tube%20sockets/
   https://threeneurons.wordpress.com/nixie-power-supply/
   https://threeneurons.wordpress.com/links/data-sheets/
 
@@ -172,7 +178,8 @@
 -Arietta G25 board (Atmega 400MHz, 128 or 256 Mb of RAM, 20 pin, I2C, SPI, serial, USB, SD card slot) "https://www.acmesystems.it/arietta"
   But most importantly it runs ARCH!! EXCUSE ME WHAT THE FUCK?: "https://archlinuxarm.org/platforms/armv5/arietta-g25"
 
--Geiger counter stuff: "https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported"
+-Geiger counter stuff:
+ "https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported"
   Best: SBM-20 and the equivalent STS-5
 
 -Cool oscilloscope: Siglent SDS1202X-E 200MHz
