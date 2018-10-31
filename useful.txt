@@ -37,3 +37,23 @@
   https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
 
 -https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
+
+
+-To create a systemd (systemctl) service (aka how to make a program start at boot):
+  create a file under /etc/systemd/system/ and call it <whatever>.service
+  then follow the formatting {
+  [Unit]
+  Description=PowerTOP auto tune
+
+  [Service]
+  Type=idle                                 # Not necessary
+  Environment="TERM=dumb"                   # Not necessary
+  ExecStart="PATHTOEXECUTABLE --OPTIONS"
+
+  [Install]
+  WantedBy=multi-user.target
+  }
+  And then enable it using "systemctl whatever.service enable", here are some guides and references:
+  https://askubuntu.com/questions/112705/how-do-i-make-powertop-changes-permanent
+  https://wiki.archlinux.org/index.php/powertop
+  https://askubuntu.com/questions/919054/how-do-i-run-a-single-command-at-startup-using-systemd
