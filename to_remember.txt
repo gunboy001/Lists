@@ -11,8 +11,6 @@
 
 -For hard drives you not only have to unmount them but also to eject them with a right click (Gnome)
 
--If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
-
 -"https://www.iplocation.net/" is pretty useful
 
 -YOU HAVE MACCHANGER so use it :) [it lets you change your MAC address]
@@ -36,10 +34,19 @@
   also works with wifite2, it basically is a shell-oriented low-weight high-performance virtual machine
   wich can run prebuilt docker images or your personal docker images. Docs: https://docs.docker.com/
 
--Incoming pac-bomb!! "pacman -Syy" update repos, "pacman -Su" update packages, "pacman -Qdtq" check unused
-  packages, "pacman -R" remove package, "pacman -S" install package, "pacman -R $(pacman -Qdtq)" remove unused
-  packages, "pacman -Rns" remove packages with dependencies, "pacman -Ql" look at package files
+-Pacman commands:
+  "pacman -Syy" update repositories
+  "pacman -Su" update packages
+  "pacman -Qdtq" list unused/orphan packages
+  "pacman -R" remove a package
+  "pacman -S" install a package
+  "pacman -R $(pacman -Qdtq)" remove unused packages
+  "pacman -Rns" remove packages and its dependencies (recursively)
+  "pacman -Ql" list all package files and locations
   "pacman -Qqe" list all installed packages
+  If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
+  "rm -rf /var/lib/pacman/db.lck" remove pacman's transaction lock file
+    (to solve "could not unlock database" error)
 
 -"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
 
@@ -129,8 +136,6 @@
 
 -Use "clamav" as antivirus: "https://wiki.archlinux.org/index.php/ClamAV", to update use "freshclam" as sudo
   and to scan "clamscan --recursive --infected /path/to/something"
-
--If pacman panics try to remove the database lock file "sudo rm -rf /var/lib/pacman/db.lck"
 
 -If by nay chance you need a key's datasheet, like for copying it with just a photo (more on that later ;),
   check out Silca's "the catalogue" it tell dimensions and the catalog's page of the key: https://thecatalogue.silca.biz/
