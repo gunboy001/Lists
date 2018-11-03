@@ -1,0 +1,10 @@
+      --/ List of tools for the discovery and mapping of networks \--
+
+- nmap / zenmap (GUI)   # Used to map networks
+- airodump-ng           # Monitor packages and discover wireless networks in the area
+- kismet                # Discover, map and monitor wifi networks,
+                        # it can be used in combination with GPS data to create maps
+- WiGLE                 # Tool for Android to discover and map wifi networks, 3G repeaters
+                        # and bluetooth devices in combination with GPS data to create a local map
+                        # or all the data can be also uploaded on WiGLE's website wich offers a world map
+                        # offering all the so-far discovered networks and a database offering the same thing
