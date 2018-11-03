@@ -13,7 +13,19 @@
 
 -"https://www.iplocation.net/" is pretty useful
 
--YOU HAVE MACCHANGER so use it :) [it lets you change your MAC address]
+-Changing the MAC address:
+  Using macchanger:
+    The general usage is "macchanger [OPTIONS] interface", the most common options being
+    -A for a random MAC,
+    -r to reset to the original one,
+    -a to change it to a random MAC of some type (same vendor),
+    -b to set the "locally administered" bit set to false or
+    -m XX:XX:XX:XX:XX:XX to manually set the MAC address.
+  Using ifconfig:
+    First disable the interface using "ifconfig <interface> down"
+    Then change the MAC address using "ifconfig <interface> hw ether 00:XX:XX:XX:XX:XX"
+      it has to begin with 00:*
+    Then finally re-enable the interface with "ifconfig <interface> up"
 
 -Wifite2 works much better than wifite "https://github.com/derv82/wifite2"
 
