@@ -84,7 +84,7 @@
 
 -Upon installing linux, to add locales uncomment them in /etc/locale.gen and then run "locale-gen" as sudo
   to search for fonts just open https://wiki.archlinux.org/index.php/Localization
-  Note that you need japanese and chinese locales and fonts to display those characters correctly
+  NOTE: you need japanese and chinese locales and fonts to display those characters correctly
 
 -Install "mesa", "lib32-mesa" and "vulkan-intel" for the graphics you dumb fuck
   "https://wiki.archlinux.org/index.php/intel_graphics"
@@ -178,11 +178,11 @@
 -Powertop usage:
   Arch page: https://wiki.archlinux.org/index.php/powertop
   To start powertop use "sudo powertop"
-  For the first calibration use "sudo powertop --calibrate", note that it takes a few minutes and during
+  For the first calibration use "sudo powertop --calibrate", NOTE: it takes a few minutes and during
     that time the screen may go (it does) black for a few minutes too, just let it run.
   To set everything to "good" do "sudo powertop --auto-tune",
     to make the auto-tune start at boot refer to the Arch wiki or "how to create a sysemd service"
-  Note that in order to apply changes and stuff you have to leave it running for some time to let it
+  NOTE: in order to apply changes and stuff you have to leave it running for some time to let it
     take its measures and stuff
 
 -Power management:
@@ -207,15 +207,27 @@
 
 -Where am I? "groups"
 
--To add executables you have to add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
-  "https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path"
-  or from "https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere"
-  quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
-  If you want to change it permanently add export PATH=$PATH:</path/to/file> (the bin/ folder) to your ~/.bashrc file (just at the end is fine)."
+-Adding executables not located in /bin/ (downloaded from internet):
+  Refers to:
+    https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path
+    https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere
+  Adding them momentarily:
+    Add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
+  Adding them at the start of the session:
+      Using bashrc:
+        Add export PATH=$PATH:</path/to/file> (the bin/ folder) to your ~/.bashrc file (just at the end is fine)
+      Using cron:
+        Add export PATH=$PATH:</path/to/file> to your crontab file:
+          Open your crontab file using "crontab -e" for current user or "crontab -e -u username" fo others
+          At the end of the file add "@reboot export PATH=$PATH:</path/to/file>"
+          NOTE: probably it is best do to add the command in the "su" cron file
 
--To check system logs use "journalctl" (you must have systemctl), some guides:
+-Checking system errors:
+  Refers to:
   https://wiki.archlinux.org/index.php/Systemd#Journal
   https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
+  If your distro users systemctl the easiest way to check errors is to look up the recent
+    events in the system logs to do that type "journalctl"
 
 -Windows:
   Adding programs to PATH:
@@ -231,9 +243,13 @@
     Open a console with admin privileges
     Type "wmic path softwarelicensingservice get OA3xOriginalProductKey"
 
--To create a systemd (systemctl) service (aka how to make a program start at boot):
-  create a file under /etc/systemd/system/ and call it <whatever>.service
-  then follow the formatting {
+-Creating a systemd (systemctl) service (aka how to make a program start at boot):
+  Guides and references:
+  https://askubuntu.com/questions/112705/how-do-i-make-powertop-changes-permanent
+  https://wiki.archlinux.org/index.php/powertop
+  https://askubuntu.com/questions/919054/how-do-i-run-a-single-command-at-startup-using-systemd
+  Create a file under /etc/systemd/system/ and call it <whatever>.service
+  Then follow the formatting {
     [Unit]
     Description=PowerTOP auto tune
 
@@ -245,7 +261,4 @@
     [Install]
     WantedBy=multi-user.target
   }
-  And then enable it using "systemctl whatever.service enable", here are some guides and references:
-  https://askubuntu.com/questions/112705/how-do-i-make-powertop-changes-permanent
-  https://wiki.archlinux.org/index.php/powertop
-  https://askubuntu.com/questions/919054/how-do-i-run-a-single-command-at-startup-using-systemd
+  And then enable it using "systemctl whatever.service enable"
