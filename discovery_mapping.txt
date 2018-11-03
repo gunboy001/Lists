@@ -2,7 +2,7 @@
 
 - nmap / zenmap (GUI)   # Used to map networks
 
-- airodump-ng           # Monitor packages and discover wireless networks in the area
+- airodump-ng           # Monitor packages and discover wireless networks in the area (also in wifi)
 
 - kismet                # Discover, map and monitor wifi networks,
 
