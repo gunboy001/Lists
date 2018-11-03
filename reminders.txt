@@ -1,0 +1,28 @@
+# This file contains reminders useful to me and to the few others
+# Rocking the thinkpad X240 and a passion for electronics and ethical hacking
+
+-You have and SDR module with the required programs and kernel modules
+
+-You have a smart card reader and to enable it you do "systemctl start pcscd.service"
+  or "systemctl enable pcscd.service" to enable it permanently, also to
+  use it there's "pcsc_tools" with the "pcsc_scan" utility
+
+-You have a mobile data card but you still don't know how to use it, the closest you've got to figuring
+  it out is: "https://wiki.archlinux.org/index.php/ThinkPad_mobile_internet"
+
+-For hard drives you not only have to unmount them but also to eject them with a right click (Gnome)
+
+-Never forgetti the memos on your phone
+
+-Arietta G25 board (Atmega 400MHz, 128 or 256 Mb of RAM, 20 pin, I2C, SPI, serial, USB, SD card slot) "https://www.acmesystems.it/arietta"
+  But most importantly it runs ARCH!! EXCUSE ME WHAT THE FUCK?: "https://archlinuxarm.org/platforms/armv5/arietta-g25"
+
+-Geiger counter stuff:
+   "https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported"
+    Best: SBM-20 and the equivalent STS-5
+
+-Cool oscilloscope: Siglent SDS1202X-E 200MHz
+
+-You can run Linux (elinux, microclinux, debian and others) on STM32 !!
+
+-Speeduino, the Arduino based ECU (engine management unit) "https://speeduino.com/wiki/index.php/Speeduino"
