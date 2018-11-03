@@ -26,14 +26,9 @@
         ethernet.cloned-mac-address=preserve
         wifi.cloned-mac-address=preserve
       }
-      to /etc/NetworkManager/NetworkManager.conf 
-
-
--Wifite2 works much better than wifite "https://github.com/derv82/wifite2"
+      to /etc/NetworkManager/NetworkManager.conf
 
 -The network interfaces are named "wlp3s0" for the internal one and "wlp0s20u2" for the alpha networks msfconsole
-
--Do not panic use the WiGLE maps to discover wifis for later use ;)
 
 -You still have tor and "arm" to monitor it
 
@@ -79,10 +74,6 @@
     https://wiki.archlinux.org/index.php/bluetooth
 
 -https://github.com/trustedsec/social-engineer-toolkit
-
--You have a one year subscription to PIA
-
--Kismet requires to be started with "kismet -c ifacemon" where ifacemon is your interface in monitor mode
 
 -Surface programs: Leonardo (drawing), Dolby access (you payed for it)
 
