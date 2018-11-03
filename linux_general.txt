@@ -15,6 +15,19 @@
     Then change the MAC address using "ifconfig <interface> hw ether 00:XX:XX:XX:XX:XX"
       it has to begin with 00:*
     Then finally re-enable the interface with "ifconfig <interface> up"
+  To prevent the MAC address from reverting to its original state you can configure the network manager
+    to not scan for other networks using a random MAC address (that is done for security by many OSs and
+    also by phones), to achieve this you have to change the conf. file for your network manager:
+      For GNOME (kali) add {
+        [device]
+        wifi.scan-rand-mac-address=preserve
+
+        [connection]
+        ethernet.cloned-mac-address=preserve
+        wifi.cloned-mac-address=preserve
+      }
+      to /etc/NetworkManager/NetworkManager.conf 
+
 
 -Wifite2 works much better than wifite "https://github.com/derv82/wifite2"
 
@@ -224,7 +237,6 @@
   https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
 
 -https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
-
 
 -To create a systemd (systemctl) service (aka how to make a program start at boot):
   create a file under /etc/systemd/system/ and call it <whatever>.service
