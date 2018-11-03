@@ -26,3 +26,5 @@
 -You can run Linux (elinux, microclinux, debian and others) on STM32 !!
 
 -Speeduino, the Arduino based ECU (engine management unit) "https://speeduino.com/wiki/index.php/Speeduino"
+
+-You have a one year subscription to PIA
