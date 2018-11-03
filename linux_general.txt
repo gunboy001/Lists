@@ -131,8 +131,6 @@
   then depending if it is an icon theme or an normal theme place them in
     "/usr/share/icons" or "/usr/share/themes" accordingly
 
--Simba https://github.com/eerimoq/simba
-
 -Adding executables and shortcuts:
   Refers to:
     https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path
@@ -192,17 +190,9 @@
   To change the actions to take when power button or lid switch events occur:
     modify the conf. file at /etc/systemd/logind.conf or /etc/systemd/logind.conf.d/*.conf
 
-
--To get the windows product key execute with admin privileges: wmic path softwarelicensingservice get OA3xOriginalProductKey
-
 -Use mitmf or ettercap to start mitm then use ferret to capture cookies (ferret -i eth0)
   use hamster to set session cookies and then in browser set the proxy settings to manual giving the address
   provided by hamster and finally open that link
-
--Example usage of mitmf: sudo mitmf --arp --spoof --gateway 192.168.1.1 --target 192.168.1.10 -i wlan0
-
--IP forwarding: "https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)" more precisely:
-    "echo 1 > /proc/sys/net/ipv4/ip_forward" thank me later
 
 -To restart network interfaces: "ifdown <interface>" "ifup <interface>" "/etc/init.d/networking restart"
     (tested working on Ubuntu server and Debian)
@@ -227,7 +217,19 @@
   https://wiki.archlinux.org/index.php/Systemd#Journal
   https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
 
--https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
+-Windows:
+  Adding programs to PATH:
+    Source: https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
+    Open: Control panel -> system -> advanced system settings -> environment variables
+    On windows 7 or 8:
+      Set the variable name to "Path"
+      Add the path to the program preceded by ";" ex. "...;C:\path\to\something"
+    On windows 10:
+      Click on "New"
+      Enter the path to the program
+  Retrieving the windows product key:
+    Open a console with admin privileges
+    Type "wmic path softwarelicensingservice get OA3xOriginalProductKey"
 
 -To create a systemd (systemctl) service (aka how to make a program start at boot):
   create a file under /etc/systemd/system/ and call it <whatever>.service
