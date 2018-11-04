@@ -1,41 +1,6 @@
 -Qt for wayland requires qt5-wayland package and "export QT_QPA_PLATFORM=wayland"
 
--"https://www.iplocation.net/" is pretty useful
-
--Changing the MAC address:
-  Using macchanger:
-    The general usage is "macchanger [OPTIONS] interface", the most common options being
-    -A for a random MAC,
-    -r to reset to the original one,
-    -a to change it to a random MAC of some type (same vendor),
-    -b to set the "locally administered" bit set to false or
-    -m XX:XX:XX:XX:XX:XX to manually set the MAC address.
-  Using ifconfig:
-    First disable the interface using "ifconfig <interface> down"
-    Then change the MAC address using "ifconfig <interface> hw ether 00:XX:XX:XX:XX:XX"
-      it has to begin with 00:*
-    Then finally re-enable the interface with "ifconfig <interface> up"
-  To prevent the MAC address from reverting to its original state you can configure the network manager
-    to not scan for other networks using a random MAC address (that is done for security by many OSs and
-    also by phones), to achieve this you have to change the conf. file for your network manager:
-      For GNOME (kali) add {
-        [device]
-        wifi.scan-rand-mac-address=preserve
-
-        [connection]
-        ethernet.cloned-mac-address=preserve
-        wifi.cloned-mac-address=preserve
-      }
-      to /etc/NetworkManager/NetworkManager.conf
-
--The network interfaces are named "wlp3s0" for the internal one and "wlp0s20u2" for the alpha networks msfconsole
-
 -You still have tor and "arm" to monitor it
-
--IP forwarding:
-  Arch page: https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)
-  "echo 1 > /proc/sys/net/ipv4/ip_forward"
-    thank me later
 
 -Docker is pretty cool you should use it, https://www.kali.org/news/official-kali-linux-docker-images/
   also works with wifite2, it basically is a shell-oriented low-weight high-performance virtual machine
@@ -75,11 +40,6 @@
 
 -https://github.com/trustedsec/social-engineer-toolkit
 
--Surface programs: Leonardo (drawing), Dolby access (you payed for it)
-
--Remember that you have a GL-AR150 mini router with tor, openvpn support and that it is based on openwrt, also:
-  https://github.com/d1slact0r/pineapple-ar150
-
 -Make some bash scripts you idiot, oh and this could be useful http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 
 -Upon installing linux, to add locales uncomment them in /etc/locale.gen and then run "locale-gen" as sudo
@@ -118,8 +78,6 @@
   Better yet is to wait for an official fix and report the bug on the troubleshooting section
   Also the same thing has to be done with the xtensa-lx6 compiler (esp32)
   "https://dl.espressif.com/doc/esp-idf/latest/get-started/linux-setup.html"
-
--Pay attention of those sneaky KDE bastards, mostly everything which begins with k is EVIL
 
 -Fixing Arduino permissions:
   Source: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
@@ -194,15 +152,6 @@
   use hamster to set session cookies and then in browser set the proxy settings to manual giving the address
   provided by hamster and finally open that link
 
--To restart network interfaces: "ifdown <interface>" "ifup <interface>" "/etc/init.d/networking restart"
-    (tested working on Ubuntu server and Debian)
-
--If airmon-ng doesn't work use "ifconfig <inerface> down" then "iwconfig <interface> mode monitor" and finally
-  "ifconfig <interface> up"
-
--To note that "iwconfig" and "ifconfig" are basically equivalent, iwconfig can be used as "iwconfig <interface>"
-  to mask just one interface and it gives more information like the status and mode (managed, monitor)
-
 -Who are you? "whoami"
 
 -Where am I? "groups"
@@ -262,3 +211,77 @@
     WantedBy=multi-user.target
   }
   And then enable it using "systemctl whatever.service enable"
+
+# NETWORK SECTION
+
+-Gathering information on network cards ie IP, MAC, status, etc.
+  With ifconfig, just type "ifconfig" and it will give:
+    ether: the MAC address
+    inet: the network ip address
+    netmatsk: the netmask duh
+    inet6: the network ipv6
+  With iwconfig (specifically for wireless cards), just type "iwconfig" and it will give:
+    Mode: monitor or managed
+    ESSID: the ESSID (name) of the connected network
+    Frequency
+    Access Point: the MAC address of the AP
+    Signal level: the power/quality of the signal
+    Among other informations
+  Sites for public IP discovery and information gathering:
+    https://www.iplocation.net/
+    http://www.whatsmyip.org/
+
+-Changing the MAC address:
+  Using macchanger:
+    The general usage is "macchanger [OPTIONS] interface", the most common options being
+    -A for a random MAC,
+    -r to reset to the original one,
+    -a to change it to a random MAC of some type (same vendor),
+    -b to set the "locally administered" bit set to false or
+    -m XX:XX:XX:XX:XX:XX to manually set the MAC address.
+  Using ifconfig:
+    First disable the interface using "ifconfig <interface> down"
+    Then change the MAC address using "ifconfig <interface> hw ether 00:XX:XX:XX:XX:XX"
+      it has to begin with 00:*
+    Then finally re-enable the interface with "ifconfig <interface> up"
+  To prevent the MAC address from reverting to its original state you can configure the network manager
+    to not scan for other networks using a random MAC address (that is done for security by many OSs and
+    also by phones), to achieve this you have to change the conf. file for your network manager:
+      For GNOME (kali) add {
+        [device]
+        wifi.scan-rand-mac-address=preserve
+
+        [connection]
+        ethernet.cloned-mac-address=preserve
+        wifi.cloned-mac-address=preserve
+      }
+      to /etc/NetworkManager/NetworkManager.conf
+
+-Changing interfaces to monitor mode:
+  Not mandatory but best use is to first use "airmon-ng check kill", this kills all processes
+    that could interfere with the process and later with the attacks
+  Using airmon-ng:
+    Simply use "airmon-ng start <interface>" to put it in monitor mode
+    And "airmon-ng stop <interface>" to revert it to managed
+  NOTE: when using airmon-ng it will change the interface name by adding *mon to its name
+    for example wlan0 becomes wlan0mon
+  Using iwconfig (useful since first method is not always reliable):
+    Disable interface using "ifconfig <interface> down" or "ifdown <interface>"
+    Change to minitor mode with "iwconfig <interface> mode monitor"
+    Re-enable interface with "ifconfig <interface> up" or "ifup <interface>"
+    To revert it back to managed disable the interface then do "iwconfig <interface> mode managed"
+      then re-enable the interface
+
+-Restarting network interfaces:
+  Without ssh:
+    Disable and re-enable the interface with "ifdown <interface>" and then "ifup <interface>"
+      or "ifconfig <interface> down" and then "ifconfig <interface> up"
+  On ssh:
+    Non systemd "/etc/init.d/networking restart"
+    Systemd (Arch) "systemctl restart NetworkManager"
+
+-Enabling IP forwarding:
+  Arch page: https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)
+  "echo 1 > /proc/sys/net/ipv4/ip_forward"
+  To revert it back:
+    "echo 0 > /proc/sys/net/ipv4/ip_forward"
