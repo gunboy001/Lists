@@ -30,3 +30,12 @@
 -You have a one year subscription to PIA
 
 -Simba https://github.com/eerimoq/simba
+
+-The network interfaces are named "wlp3s0" for the internal one and "wlp0s20u2" for the alpha networks msfconsole
+
+-Surface programs: Leonardo (drawing), Dolby access (you payed for it)
+
+-Remember that you have a GL-AR150 mini router with tor, openvpn support and that it is based on openwrt, also:
+  https://github.com/d1slact0r/pineapple-ar150
+
+-Pay attention of those sneaky KDE bastards, mostly everything which begins with k is EVIL
