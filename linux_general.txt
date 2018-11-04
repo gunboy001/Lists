@@ -6,6 +6,8 @@
   also works with wifite2, it basically is a shell-oriented low-weight high-performance virtual machine
   wich can run prebuilt docker images or your personal docker images. Docs: https://docs.docker.com/
 
+# ARCH SECTION
+
 -Pacman commands:
   "pacman -Syy" update repositories
   "pacman -Su" update packages
@@ -19,35 +21,55 @@
   If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
   "rm -rf /var/lib/pacman/db.lck" remove pacman's transaction lock file
     (to solve "could not unlock database" error)
+  To manage and download packages from the AUR use:
+    pikaur
+    yaourt (unmantained)
+  These are all wrappers which means they extend some functionalities of pacman to use
+    AUR, for example updating and installing packages (-Syu and -S)
+  NOTE: pacman wrappers don't need to be run as root since it's dangerous to
+    run PKGBUILD as such.
+
+# SYSADMIN SECTION
 
 -"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
 
 -GREP basics:
-  GREP or "grep" is the most beautiful thing in the fucking universe, use it to filter results like:
-  "ps ax | grep whatyouwant" and it will find it another example is "dmesg | grep whatyouwant"
-  the | is used to pipe the output in another program like, can you guess it? grep
+  G-REP or "grep" can be used to filter command results:
+  "ps ax | grep whatyouwant" and it will output the line containing "whatyouwant"
+   example "dmesg | grep whatyouwant"
+  NOTE: "|" is used to pipe the output in another program
+
+-Linux afterinstall (how to get thing working):
+  Bluetooth usage:
+    Refers to:
+      https://wiki.archlinux.org/index.php/Bluetooth_headset
+      https://wiki.archlinux.org/index.php/bluetooth
+    Start the "bluetooth.service" service then refer to:
+  Generating locales (languages and language support):
+    Add locales uncommenting them in /etc/locale.gen
+    Run "locale-gen"
+    Reboot
+    NOTE: if installing locales with a specific character set (russian, chinese, japanese)
+      it is needed to also install the specific fonts, refer to:
+      "https://wiki.archlinux.org/index.php/Localization" to find the specific font packages
+      and install them using pacman
+  Getting the graphics drivers:
+    For Intel graphics cards:
+      Refers to: https://wiki.archlinux.org/index.php/intel_graphics
+      mesa
+      lib32-mesa
+      vulkan-intel
+    For nvidia graphics cards:
+      Please refer to: https://wiki.archlinux.org/index.php/NVIDIA#Installation
+    For amd graphics cards:
+      mesa
+      lib32-mesa
+      xf86-video-ati: for Xorg hardware acceleration support
+      mesa-vdpau and lib32-mesa-vdpau: for accelerated video decoding
 
 -You use "ps ax" to view all processes and their UIDs
 
 -"https://wiki.archlinux.org/index.php/systemd" just helpful
-
--Remember: the ArchLinux wiki is your lord and savior
-
--Bluetooth usage:
-  Start the "bluetooth.service" service then refer to:
-    https://wiki.archlinux.org/index.php/Bluetooth_headset
-    https://wiki.archlinux.org/index.php/bluetooth
-
--https://github.com/trustedsec/social-engineer-toolkit
-
--Make some bash scripts you idiot, oh and this could be useful http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
-
--Upon installing linux, to add locales uncomment them in /etc/locale.gen and then run "locale-gen" as sudo
-  to search for fonts just open https://wiki.archlinux.org/index.php/Localization
-  NOTE: you need japanese and chinese locales and fonts to display those characters correctly
-
--Install "mesa", "lib32-mesa" and "vulkan-intel" for the graphics you dumb fuck
-  "https://wiki.archlinux.org/index.php/intel_graphics"
 
 -To run .jar files in cli you must use "java -jar"
 
@@ -56,17 +78,6 @@
 -To check a disk's health you need "smartmontools", first check system compatibility with "sudo smartctl -c /dev/sdX"
   then either do a short test "sudo smartctl -t short /dev/sdX" or a long test "sudo smartctl -t long /dev/sdX"
   lastly do "sudo smartctl -H /dev/sdX" to get the results
-
--https://github.com/spacehuhn
-
--You are gefährliches halbwissen
-
--pikaur (AUR) to manage AUR packages
-
--Problem with xtensa-lx106 gcc for compiling esp8266 programs:
- "https://community.zerynth.com/t/can-not-build-wifi-example-on-nodemcu-v3-error-building-native-c-driver/1280"
-
-
 
 -Recompiling compilers for zerynth:
   If facing compiling errors in zerynth, manually recompile the compiler for the board in ""~/.zerynth2/sys"
@@ -100,29 +111,6 @@
 -Use "clamav" as antivirus: "https://wiki.archlinux.org/index.php/ClamAV", to update use "freshclam" as sudo
   and to scan "clamscan --recursive --infected /path/to/something"
 
--If by nay chance you need a key's datasheet, like for copying it with just a photo (more on that later ;),
-  check out Silca's "the catalogue" it tell dimensions and the catalog's page of the key: https://thecatalogue.silca.biz/
-
--Power cord names and standards: http://community.fs.com/blog/small-power-cord-big-difference.html
-
--Circuit design guide for DC/DC converters (1/10): https://www.torexsemi.com/technical-support/application-note/design-guide-for-dcdc-converter/whats-dcdc-converters/
-
--It may be useful to download some sites that I list here on top of the whole arch wiki and Wikipedia
-  a guide is found here: https://www.youtube.com/watch?v=LjeQKE_tEcA&index=4&t=0s&list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a
-  and also an official guide from Wikipedia itself: https://en.wikipedia.org/wiki/Wikipedia:Database_download
-
--Some of my own playlists:
-  Hacking "https://www.youtube.com/playlist?list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a"
-  Thing to do "https://www.youtube.com/playlist?list=PLY_0BKX9I82bwbEh80pKXGSkiNt_2xgUP"
-  Linux useful (WIP) "https://www.youtube.com/playlist?list=PLY_0BKX9I82ZCWMlV6N0d9IxbQt32Cvs0"
-  CR-10 "https://www.youtube.com/playlist?list=PLY_0BKX9I82aiEm96d0tvK3KWw1opw6dR"
-  Electronic basics "https://www.youtube.com/playlist?list=PLY_0BKX9I82b5DYjdoY-iGHgfqH6Msv4A"
-
--Nixie tubes and stuff:
-  https://threeneurons.wordpress.com/miscellaneous-projects/improvised-tube%20sockets/
-  https://threeneurons.wordpress.com/nixie-power-supply/
-  https://threeneurons.wordpress.com/links/data-sheets/
-
 -Some git stuff:
   Creating a repo and pushing the first commit: "https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/"
     basically it's a matter of defining the remote (origin) repo "git remote add origin <repo URL>"
@@ -147,10 +135,6 @@
   Arch page: https://wiki.archlinux.org/index.php/Power_management#Power_management_with_systemd
   To change the actions to take when power button or lid switch events occur:
     modify the conf. file at /etc/systemd/logind.conf or /etc/systemd/logind.conf.d/*.conf
-
--Use mitmf or ettercap to start mitm then use ferret to capture cookies (ferret -i eth0)
-  use hamster to set session cookies and then in browser set the proxy settings to manual giving the address
-  provided by hamster and finally open that link
 
 -Who are you? "whoami"
 
