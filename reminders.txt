@@ -39,3 +39,39 @@
   https://github.com/d1slact0r/pineapple-ar150
 
 -Pay attention of those sneaky KDE bastards, mostly everything which begins with k is EVIL
+
+-Remember: the ArchLinux wiki is your lord and savior
+
+-Make some bash scripts you idiot, oh and this could be useful http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
+
+-https://github.com/trustedsec/social-engineer-toolkit
+
+-https://github.com/spacehuhn
+
+-You are gefährliches halbwissen
+
+-Problem with xtensa-lx106 gcc for compiling esp8266 programs:
+ "https://community.zerynth.com/t/can-not-build-wifi-example-on-nodemcu-v3-error-building-native-c-driver/1280"
+
+-If by nay chance you need a key's datasheet, like for copying it with just a photo (more on that later ;),
+  check out Silca's "the catalogue" it tell dimensions and the catalog's page of the key: https://thecatalogue.silca.biz/
+
+-Power cord names and standards: http://community.fs.com/blog/small-power-cord-big-difference.html
+
+-Circuit design guide for DC/DC converters (1/10): https://www.torexsemi.com/technical-support/application-note/design-guide-for-dcdc-converter/whats-dcdc-converters/
+
+-It may be useful to download some sites that I list here on top of the whole arch wiki and Wikipedia
+  a guide is found here: https://www.youtube.com/watch?v=LjeQKE_tEcA&index=4&t=0s&list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a
+  and also an official guide from Wikipedia itself: https://en.wikipedia.org/wiki/Wikipedia:Database_download
+
+-Some of my own playlists:
+  Hacking "https://www.youtube.com/playlist?list=PLY_0BKX9I82YNPNxRZRbGEqaxRdpSAk6a"
+  Thing to do "https://www.youtube.com/playlist?list=PLY_0BKX9I82bwbEh80pKXGSkiNt_2xgUP"
+  Linux useful (WIP) "https://www.youtube.com/playlist?list=PLY_0BKX9I82ZCWMlV6N0d9IxbQt32Cvs0"
+  CR-10 "https://www.youtube.com/playlist?list=PLY_0BKX9I82aiEm96d0tvK3KWw1opw6dR"
+  Electronic basics "https://www.youtube.com/playlist?list=PLY_0BKX9I82b5DYjdoY-iGHgfqH6Msv4A"
+
+-Nixie tubes and stuff:
+  https://threeneurons.wordpress.com/miscellaneous-projects/improvised-tube%20sockets/
+  https://threeneurons.wordpress.com/nixie-power-supply/
+  https://threeneurons.wordpress.com/links/data-sheets/
