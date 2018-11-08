@@ -67,6 +67,11 @@
       xf86-video-ati: for Xorg hardware acceleration support
       mesa-vdpau and lib32-mesa-vdpau: for accelerated video decoding
 
+-Listing all installed packages:
+  With apt "apt list --installed"
+  With pacman "pacman -Ql"
+  NOTE: every result can be filtered with grep
+
 -You use "ps ax" to view all processes and their UIDs
 
 -"https://wiki.archlinux.org/index.php/systemd" just helpful
