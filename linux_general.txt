@@ -18,6 +18,7 @@
   "pacman -Rns" remove packages and its dependencies (recursively)
   "pacman -Ql" list all package files and locations
   "pacman -Qqe" list all installed packages
+  "pacman -Qc" view package changelog
   If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
   "rm -rf /var/lib/pacman/db.lck" remove pacman's transaction lock file
     (to solve "could not unlock database" error)
@@ -66,11 +67,6 @@
       lib32-mesa
       xf86-video-ati: for Xorg hardware acceleration support
       mesa-vdpau and lib32-mesa-vdpau: for accelerated video decoding
-
--Listing all installed packages:
-  With apt "apt list --installed"
-  With pacman "pacman -Ql"
-  NOTE: every result can be filtered with grep
 
 -You use "ps ax" to view all processes and their UIDs
 
