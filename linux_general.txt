@@ -34,11 +34,30 @@
 
 -"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
 
--GREP basics:
-  G-REP or "grep" can be used to filter command results:
-  "ps ax | grep whatyouwant" and it will output the line containing "whatyouwant"
-   example "dmesg | grep whatyouwant"
-  NOTE: "|" is used to pipe the output in another program
+-Basic commands:
+  GREP:
+    G-REP or "grep" can be used to filter command results:
+    "ps ax | grep whatyouwant" and it will output the line containing "whatyouwant"
+    example "dmesg | grep whatyouwant"
+    NOTE: "|" is used to pipe the output in another program
+  PS:
+    Ps is a UNIX tool used to get information about the current status of the system
+    The most basic and or useful usage is to view all the running processes and the corresponding
+    UUIDs (like if you want to kill process and you need its UUID), that is done by appending "ax"
+    to ps: "ps ax"
+  KILL:
+    It kill the specified process given its UUID, syntax "kill <UUID>"
+  "|" and ">":
+    These are both "pipe" functions, they can pipe the output of a script or program into
+    something (via std i/o), but they are used differently in the sense that "|" is specifically
+    used to pipe the output into another program EX: "ps ax | grep gnome-shell", this outputs the UUIDs
+    of all the gnome-shell instances since the output of "ps ax" is piped into GREP which in turn
+    returns just the results of the query.
+    On the other hand ">" is used to pipe the output into a file EX: "ls -la > ls.txt", this puts
+    the output of ls into ls.txt which we can then read.
+  "whoami" and "groups":
+    they respectively output the current user and groups
+    NOTE: one alternative to "whoami" is "echo $USER" which can be used in scripts
 
 -Linux afterinstall (how to get thing working):
   Bluetooth usage:
@@ -73,8 +92,6 @@
     "apt list --installed"
   With pacman:
     "pacman -Qqe"
-
--You use "ps ax" to view all processes and their UIDs
 
 -"https://wiki.archlinux.org/index.php/systemd" just helpful
 
@@ -142,10 +159,6 @@
   Arch page: https://wiki.archlinux.org/index.php/Power_management#Power_management_with_systemd
   To change the actions to take when power button or lid switch events occur:
     modify the conf. file at /etc/systemd/logind.conf or /etc/systemd/logind.conf.d/*.conf
-
--Who are you? "whoami"
-
--Where am I? "groups"
 
 -Adding executables not located in /bin/ (downloaded from internet):
   Refers to:
