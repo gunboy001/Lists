@@ -16,7 +16,7 @@
   "pacman -S" install a package
   "pacman -R $(pacman -Qdtq)" remove unused packages
   "pacman -Rns" remove packages and its dependencies (recursively)
-  "pacman -Ql" list all package files and locations
+  "pacman -Ql" list all package's files and locations
   "pacman -Qqe" list all installed packages
   "pacman -Qc" view package changelog
   If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
@@ -67,6 +67,12 @@
       lib32-mesa
       xf86-video-ati: for Xorg hardware acceleration support
       mesa-vdpau and lib32-mesa-vdpau: for accelerated video decoding
+
+-Listing installed packages:
+  With apt/apt-get:
+    "apt list --installed"
+  With pacman:
+    "pacman -Qqe"
 
 -You use "ps ax" to view all processes and their UIDs
 
