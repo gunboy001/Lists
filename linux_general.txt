@@ -132,10 +132,13 @@
   Also the same thing has to be done with the xtensa-lx6 compiler (esp32)
   "https://dl.espressif.com/doc/esp-idf/latest/get-started/linux-setup.html"
 
--Fixing Arduino permissions:
-  Source: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
-  "ls -la /dev/tty*" and see which group TTYs are in, then add yourself to that group:
-  "usermod -a -G examplegroup exampleusername" or just use "$USER" to add current user, then reboot.
+-Various permission errors:
+  Arduino permissions:
+    Source: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
+    "ls -la /dev/tty*" and see which group TTYs are in, then add yourself to that group:
+    "usermod -a -G examplegroup exampleusername" or just use "$USER" to add current user, then reboot.
+  Wireshark permissions:
+    "usermod -a -G wireshark $USER"
 
 -Theming gnome:
   download the theme packages at "https://www.gnome-look.org/" and unzip them
