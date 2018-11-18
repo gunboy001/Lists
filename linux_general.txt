@@ -58,13 +58,24 @@
   "whoami" and "groups":
     they respectively output the current user and groups
     NOTE: one alternative to "whoami" is "echo $USER" which can be used in scripts
+  FIND:
+    Sources:
+      https://www.cyberciti.biz/faq/how-do-i-find-all-the-files-owned-by-a-particular-user-or-group/
+      refer to man for all the available options
+    Basic syntax:
+      "find <dir> [OPTIONS]"
+    OPTIONS:
+      "-user <user>" find files owned by a particular user
+      "-group <group>" find files owned by a particular group
+      "-ls" list results in "ls" format:
+      "-name <filename>" find a specific file or pattern (*.txt)
 
--Adding users to groups:
-  "usermod -a -G grup user"
-  reboot
-
--Listing all groups:
-  "cut -d: -f1 /etc/group | sort"
+-Groups:
+  Adding users to groups:
+    "usermod -a -G grup user"
+    reboot
+  Listing all groups:
+    "cut -d: -f1 /etc/group | sort"
 
 -Linux afterinstall (how to get thing working):
   Bluetooth usage:
