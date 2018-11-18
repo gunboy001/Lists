@@ -59,6 +59,13 @@
     they respectively output the current user and groups
     NOTE: one alternative to "whoami" is "echo $USER" which can be used in scripts
 
+-Adding users to groups:
+  "usermod -a -G grup user"
+  reboot
+
+-Listing all groups:
+  "cut -d: -f1 /etc/group | sort"
+
 -Linux afterinstall (how to get thing working):
   Bluetooth usage:
     Refers to:
