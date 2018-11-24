@@ -21,7 +21,9 @@
   "pacman -Qc" view package changelog
   If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
   "rm -rf /var/lib/pacman/db.lck" remove pacman's transaction lock file
-    (to solve "could not unlock database" error)
+    (to solve "could not unlock database" error, which happen when pacman is already running)
+  NOTE: If all of a sudden everything is fucked up bad (like no GUI whatsowever)
+    check the pacman log at "/var/log/pacman.log" to see what went wrong and what got removed
   To manage and download packages from the AUR use:
     pikaur
     yaourt (unmantained)
