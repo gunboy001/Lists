@@ -25,12 +25,19 @@
   NOTE: If all of a sudden everything is fucked up bad (like no GUI whatsowever)
     check the pacman log at "/var/log/pacman.log" to see what went wrong and what got removed
   To manage and download packages from the AUR use:
-    pikaur
+    pikaur: https://github.com/actionless/pikaur#installation
     yaourt (unmantained)
   These are all wrappers which means they extend some functionalities of pacman to use
     AUR, for example updating and installing packages (-Syu and -S)
   NOTE: pacman wrappers don't need to be run as root since it's dangerous to
     run PKGBUILD as such.
+
+-Network management WIP
+  Arch uses netctl to manage connections, all the config files and examples are under
+    /etc/netctl/ and /etc/netctl/examples
+  References: https://wiki.archlinux.org/index.php/Netctl
+    https://www.raspberrypi.org/forums/viewtopic.php?t=54080
+    https://wiki.archlinux.org/index.php/Dhcpcd#Static_profile
 
 # SYSADMIN SECTION
 
@@ -78,6 +85,12 @@
     reboot
   Listing all groups:
     "cut -d: -f1 /etc/group | sort"
+
+-Users:
+  Creating a new user:
+    useradd -m user-name
+  Deleting an existing user:
+    userdel user-name
 
 -Linux afterinstall (how to get thing working):
   Bluetooth usage:
@@ -232,12 +245,18 @@
     [Service]
     Type=idle                                 # Not necessary
     Environment="TERM=dumb"                   # Not necessary
-    ExecStart="PATHTOEXECUTABLE --OPTIONS"
+    ExecStart=PATHTOEXECUTABLE --OPTIONS
 
     [Install]
     WantedBy=multi-user.target
   }
   And then enable it using "systemctl whatever.service enable"
+  Other method: using crontab
+    Reference: https://wiki.archlinux.org/index.php/cron#Crontab_format
+    Install cronie then put your command into the crontab file using
+      "crontab -e"
+    Then follow the formatting according to the reference to specify when the command
+      is executed
 
 # NETWORK SECTION
 
