@@ -31,6 +31,12 @@
     AUR, for example updating and installing packages (-Syu and -S)
   NOTE: pacman wrappers don't need to be run as root since it's dangerous to
     run PKGBUILD as such.
+  Pacman GUI frontends:
+    "pamac" based on gtk and it is the same GUI frontend in the gnome and KDE releases
+      of manjaro, to install use the package "pamac-aur" or "pamac-aur-git" from the AUR.
+    "octopi" is a lightweight GUI frontend for pacman and it is one of the most used ones
+      although it isn't as visually appealing as pamac and requires a gtk sudo permission
+      package such as "blank don't remember"
 
 -Network management WIP
   Arch uses netctl to manage connections, all the config files and examples are under
