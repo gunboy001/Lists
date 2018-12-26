@@ -337,3 +337,14 @@
   "echo 1 > /proc/sys/net/ipv4/ip_forward"
   To revert it back:
     "echo 0 > /proc/sys/net/ipv4/ip_forward"
+
+# USEFUL PROGRAMS
+
+  -"youtube-dl" is a tool that allows you to download content (eg. videos, audio and thumbnails)
+    from not only youtube but also from other streaming sites
+
+  -"firejail" is a program used to isolate other programs in a sandbox to make their execution
+    more secure, giving them minimal access to the system files
+
+  -"ms-office-online" the online office suite for 'offline' use
+    NOTE: needs registration to the Microsoft services
