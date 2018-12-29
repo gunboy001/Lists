@@ -346,5 +346,9 @@
   -"firejail" is a program used to isolate other programs in a sandbox to make their execution
     more secure, giving them minimal access to the system files
 
-  -"ms-office-online" the online office suite for 'offline' use
+  -"ms-office-online" (AUR) the online office suite for 'offline' use
     NOTE: needs registration to the Microsoft services
+
+    -"maybe" lets you see what a certain command does before it does it, ex "maybe rm -rf /home" lets you see which files will be affected
+      by rm.
+      NOTE: this is a python script, to install it use "sudo pip install maybe", the "python-pip" package is required
