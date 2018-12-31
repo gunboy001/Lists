@@ -87,7 +87,7 @@
 
 -Groups:
   Adding users to groups:
-    "usermod -a -G grup user"
+    "usermod -a -G group user"
     reboot
   Listing all groups:
     "cut -d: -f1 /etc/group | sort"
@@ -223,6 +223,11 @@
   https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
   If your distro users systemctl the easiest way to check errors is to look up the recent
     events in the system logs to do that type "journalctl"
+
+-Using android devices:
+  Source: https://wiki.archlinux.org/index.php/Media_Transfer_Protocol
+  Android devices use the MTP interface, to be able to access them in your file manager it is usually required
+    to install the packages: "libmtp" "gvfs-mtp" and "gvfs-gphoto2"
 
 -Windows:
   Adding programs to PATH:
