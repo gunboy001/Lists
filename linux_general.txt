@@ -186,7 +186,10 @@
   Using 2 factor auth. in command line and atom: "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/"
     basically you have to use a access token instead of the password, these are unique and you can only
     see them once, so be careful with them!
-
+  Downloading other branches:
+    In your folder repo open a git bash or a terminal (for linux masterrace) then, admitted that you have already downloaded and synced the master
+    branch, and type "git checkout -t origin/branchname" this will download and sync the branch
+    
 -Powertop usage:
   Arch page: https://wiki.archlinux.org/index.php/powertop
   To start powertop use "sudo powertop"
