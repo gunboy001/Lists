@@ -125,6 +125,18 @@
       lib32-mesa
       xf86-video-ati: for Xorg hardware acceleration support
       mesa-vdpau and lib32-mesa-vdpau: for accelerated video decoding
+  Adding entropy to your system:
+    Refers to: https://wiki.archlinux.org/index.php/Random_number_generation
+    This is useful as the kernel's built-in random number generator is very slow, as such
+    it makes tasks like loading the login manager a pain.
+    To solve this problem you can install some pseudo-random number generators such as:
+      rng-tools
+      haveged
+    NOTE: Keep in mind that these are not for secure systems and remember to start and enable the service
+          rngd.service
+  Getting NTFS support working:
+    Refers to: https://wiki.archlinux.org/index.php/NTFS-3G
+    Install the "ntfs-3g" package
 
 -Listing installed packages:
   With apt/apt-get:
@@ -160,6 +172,9 @@
     "usermod -a -G examplegroup exampleusername" or just use "$USER" to add current user, then reboot.
   Wireshark permissions:
     "usermod -a -G wireshark $USER"
+
+-Arduino not starting:
+  Try installing "arduino-avr-core" package
 
 -Theming gnome:
   download the theme packages at "https://www.gnome-look.org/" and unzip them
@@ -228,6 +243,11 @@
   Source: https://wiki.archlinux.org/index.php/Media_Transfer_Protocol
   Android devices use the MTP interface, to be able to access them in your file manager it is usually required
     to install the packages: "libmtp" "gvfs-mtp" and "gvfs-gphoto2"
+    NOTE: Apple devices require the "gvfs-afc" package, and the "gamin" package is also recommended
+
+-File previews on KDE (Dolphin):
+  Please refer to: https://wiki.archlinux.org/index.php/Dolphin#File_previews
+  for the list of packages suitable for different file types
 
 -Windows:
   Adding programs to PATH:
