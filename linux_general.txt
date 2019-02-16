@@ -19,6 +19,7 @@
   "pacman -Ql" list all package's files and locations
   "pacman -Qqe" list all installed packages
   "pacman -Qc" view package changelog
+  "pacman -Qm" list packages not present in official repositories
   If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
   "rm -rf /var/lib/pacman/db.lck" remove pacman's transaction lock file
     (to solve "could not unlock database" error, which happen when pacman is already running)
