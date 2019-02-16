@@ -204,7 +204,7 @@
   Downloading other branches:
     In your folder repo open a git bash or a terminal (for linux masterrace) then, admitted that you have already downloaded and synced the master
     branch, and type "git checkout -t origin/branchname" this will download and sync the branch
-    
+
 -Powertop usage:
   Arch page: https://wiki.archlinux.org/index.php/powertop
   To start powertop use "sudo powertop"
@@ -292,6 +292,31 @@
     Then follow the formatting according to the reference to specify when the command
       is executed
 
+-Undervolting the CPU:
+  Refers to:
+    https://wiki.archlinux.org/index.php/Undervolting_CPU
+    https://wiki.archlinux.org/index.php/Stress_testing
+    https://wiki.archlinux.org/index.php/benchmarking
+  WARNING: Overvolting and overheating can result in permanent damage
+  On arch install the package "intel-undervolt" from AUR and edit it's configuration file
+  located in /etc/intel-undervolt.conf, changing the values from 0 to -number results in that
+  number of millivolts taken from the CPU voltage.
+  The following are the parts affected:
+    "CPU" changes the CPU core voltage
+    "GPU" changes the integrated GPU voltage
+    "Cache" changes the cache voltage
+    "System agent" changes the controller, RAM and PCI voltages
+    "Analog IO" changes the various sensors voltage
+  NOTE: changing the System Agent and Analog IO can lead to various errors such as inaccurate readings
+    from sensors crashes and possibly corruption, so it is greatly discouraged
+  One method to undervolt your CPU or GPU is to gradually step down the voltage in 5 or 10 millivolt
+  steps stress testing the system in between for several minutes to ensure the system's stability
+  Some tools used to stress test your system are:
+    "stress" tool written in C used for memory, CPU and disk IO tests
+    "mprime" AUR, tool for stress testing RAM and CPU
+    "unigine-heaven" and the unigine series, although benchmarks they are a great way to stress test
+      the integrated GPUs of laptops
+
 # NETWORK SECTION
 
 -Gathering information on network cards ie IP, MAC, status, etc.
@@ -361,7 +386,7 @@
     Systemd (Arch) "systemctl restart NetworkManager"
 
 -Enabling IP forwarding:
-  Arch page: https://wiki.archlinux.org/index.php/Internet_sharing_(Italiano)
+  Arch page: https://wiki.archlinux.org/index.php/Internet_sharing
   "echo 1 > /proc/sys/net/ipv4/ip_forward"
   To revert it back:
     "echo 0 > /proc/sys/net/ipv4/ip_forward"
