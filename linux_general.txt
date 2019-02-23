@@ -15,7 +15,8 @@
   "pacman -R" remove a package
   "pacman -S" install a package
   "pacman -R $(pacman -Qdtq)" remove unused packages
-  "pacman -Rns" remove packages and its dependencies (recursively)
+  "pacman -Rns" remove packages and its dependencies recursively
+  "pacman -Rcs" remove packages and its dependents recursively
   "pacman -Ql" list all package's files and locations
   "pacman -Qqe" list all installed packages
   "pacman -Qc" view package changelog
