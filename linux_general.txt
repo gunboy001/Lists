@@ -182,6 +182,12 @@
   then depending if it is an icon theme or an normal theme place them in
     "/usr/share/icons" or "/usr/share/themes" accordingly
 
+-Printing documents:
+  Refers to: https://wiki.archlinux.org/index.php/CUPS#Installation
+  Install the "cups" package then start and enable it
+  To start a print use whatever printing program you have
+  NOTE: you might need to add printers and to do so, in some cases like for KDE, you'll need to be logged as root
+
 -Adding executables and shortcuts:
   Refers to:
     https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path
