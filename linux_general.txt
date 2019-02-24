@@ -197,6 +197,18 @@
   Quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
   If you want to change it permanently add export PATH=$PATH:</path/to/file> to your ~/.bashrc file (just at the end is fine)."
 
+-Eagle CAD dark theme fix (KDE):
+  Refers to:
+    https://forum.kde.org/viewtopic.php?f=17&t=136316
+    https://forums.autodesk.com/t5/eagle-forum/kubuntu-18-04-kde-dark-theme/td-p/8188466
+  To fix this behavior you first have to apply the default light theme of KDE (breeze), then copy the kdeglobals
+  file located under ~/.kde4/share/ create a folder named ~/.config_light/ and paste the kdeglobals in it,
+  rename kdeglobals to config_light, then finally add to the eagle start command:
+    "export XDG_CONFIG_HOME=/home/ale/.config_light/ ;" (where ale is your username)
+  or add an alias to the eagle command where it becomes: "export XDG_CONFIG_HOME=/home/ale/.config_light/ ; eagle"
+  NOTE: this will change the default settings folder to ~/.config_light, all previous setting will be lost but not
+    the libraries or projects
+
 -Use "clamav" as antivirus: "https://wiki.archlinux.org/index.php/ClamAV", to update use "freshclam" as sudo
   and to scan "clamscan --recursive --infected /path/to/something"
 
