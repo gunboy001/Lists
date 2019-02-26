@@ -132,8 +132,8 @@
     This is useful as the kernel's built-in random number generator is very slow, as such
     it makes tasks like loading the login manager a pain.
     To solve this problem you can install some pseudo-random number generators such as:
-      rng-tools
-      haveged
+      "rng-tools" secure, uses more CPU
+      "haveged" fast and lightweight
     NOTE: Keep in mind that these are not for secure systems and remember to start and enable the service
           rngd.service
   Getting NTFS support working:
@@ -312,6 +312,8 @@
     Then follow the formatting according to the reference to specify when the command
       is executed
 
+# LAPTOP OPTIMIZATION
+
 -Undervolting the CPU:
   Refers to:
     https://wiki.archlinux.org/index.php/Undervolting_CPU
@@ -336,6 +338,30 @@
     "mprime" AUR, tool for stress testing RAM and CPU
     "unigine-heaven" and the unigine series, although benchmarks they are a great way to stress test
       the integrated GPUs of laptops
+
+-i915 (graphics) tweaks:
+  Refers to: https://gist.github.com/Brainiarc7/aa43570f512906e882ad6cdd835efe57
+  There are a number of tweaks that can save some watts regarding the integrated graphics card
+  to enable them you can create a file called "/etc/modprobe.d/i915.conf" containing all of them,
+  you can get the complete list of available parameters and their description by running
+  "modinfo -p i915".
+  The file must be filled following the format:
+  options i915 "parameter"
+  Some safe-to-use parameters are:
+    "enable_fbc=1" enables frame buffer compression
+    "enable_dc=1" enables power saving
+    "disable_power_well=0" enables power well
+  Other parameters may include "enable_psr=1" but that doesn't always work on pre-skylake hardware and on newer
+  is straight up broken, it also depends on whether or not the display supports it, for further information refer to:
+  https://hansdegoede.livejournal.com/18653.html
+  NOTE: as every parameter has the potential to cause weird issues it is recommended to test them first by appending them
+  to the boot command (either in GRUB, rEFInd or systemd-boot) using the syntax: i915.enable_dc=1
+  After having enabled the options you can check if they were correctly applied by running "systool -m i915 -av" as root
+
+-General tweaks:
+  Use "haveged" instead of "rng-tools"
+  Under KDE uninstall everything PIM or akonadi related
+  Minimize the number of needed applications and daemons
 
 # NETWORK SECTION
 
@@ -392,7 +418,7 @@
     for example wlan0 becomes wlan0mon
   Using iwconfig (useful since first method is not always reliable):
     Disable interface using "ifconfig <interface> down" or "ifdown <interface>"
-    Change to minitor mode with "iwconfig <interface> mode monitor"
+    Change to monitor mode with "iwconfig <interface> mode monitor"
     Re-enable interface with "ifconfig <interface> up" or "ifup <interface>"
     To revert it back to managed disable the interface then do "iwconfig <interface> mode managed"
       then re-enable the interface
@@ -422,6 +448,6 @@
   -"ms-office-online" (AUR) the online office suite for 'offline' use
     NOTE: needs registration to the Microsoft services
 
-    -"maybe" lets you see what a certain command does before it does it, ex "maybe rm -rf /home" lets you see which files will be affected
-      by rm.
-      NOTE: this is a python script, to install it use "sudo pip install maybe", the "python-pip" package is required
+  -"maybe" lets you see what a certain command does before it does it, ex "maybe rm -rf /home" lets you see which files will be affected
+    by rm.
+    NOTE: this is a python script, to install it use "sudo pip install maybe", the "python-pip" package is required
