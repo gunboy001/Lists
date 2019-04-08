@@ -240,7 +240,9 @@
 
 -Some git stuff:
   Creating a repo and pushing the first commit: "https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/"
-    basically it's a matter of defining the remote (origin) repo "git remote add origin <repo URL>"
+    first init the repo with "git init"
+    then if you want to sync with a remote repo basically it's a matter of defining the remote (origin) repo "git remote add origin <repo URL>"
+    before committing add staged changes with "git add /roba" or everything with "git add ."
     committing the changes in local repo "git commit -m "message" "
     pushing before first pull "git pull origin master --allow-unrelated-histories" the last part is just to merge the repos (if needed)
     and finally pushing the changes "git push origin master", or in atom just publish
