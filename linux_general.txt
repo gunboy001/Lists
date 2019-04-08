@@ -8,6 +8,14 @@
 
 # ARCH SECTION
 
+-Links useful during an arch install:
+    https://wiki.archlinux.org/index.php/Installation_guide
+    https://wiki.archlinux.org/index.php/GRUB
+    https://wiki.archlinux.org/index.php/General_recommendations#Users_and_groups
+    https://wiki.archlinux.org/index.php/EFI_system_partition
+    https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks
+    https://wiki.archlinux.org/index.php/List_of_applications
+
 -Pacman commands:
   "pacman -Syy" update repositories
   "pacman -Su" update packages
@@ -39,6 +47,8 @@
     "octopi" is a lightweight GUI frontend for pacman and it is one of the most used ones
       although it isn't as visually appealing as pamac and requires a gtk sudo permission
       package such as "blank don't remember"
+  Ranking mirrors based on speed:
+    
 
 -Network management WIP
   Arch uses netctl to manage connections, all the config files and examples are under
@@ -145,6 +155,16 @@
     "apt list --installed"
   With pacman:
     "pacman -Qqe"
+    
+-Changing the default shell
+    To change your default shell to something other than bash use:
+    "chsh -s full-path-to-shell" for example "chsh -s /bin/zsh"
+    to list all installed shells use "chsh -l"
+    
+-Changing keyboard layout:
+    Source: https://superuser.com/questions/1147320/how-to-change-keyboard-layout-in-i3
+    In the system console type "layout <layout>"
+    In i3 (and possibly other wms) "setxkbmap -layout <layout>"
 
 -"https://wiki.archlinux.org/index.php/systemd" just helpful
 
@@ -174,7 +194,13 @@
     "usermod -a -G examplegroup exampleusername" or just use "$USER" to add current user, then reboot.
   Wireshark permissions:
     "usermod -a -G wireshark $USER"
-
+  Pen drive in read only:
+    Refers to: https://www.youtube.com/watch?v=F4lAlb74mGs
+    unmount the pen drive (4exmpl /dev/sdb1)
+    type as superuser "dosfsck -a /dev/sdb1"
+    remount
+    profit
+  
 -Arduino not starting:
   Try installing "arduino-avr-core" package
 
@@ -451,3 +477,7 @@
   -"maybe" lets you see what a certain command does before it does it, ex "maybe rm -rf /home" lets you see which files will be affected
     by rm.
     NOTE: this is a python script, to install it use "sudo pip install maybe", the "python-pip" package is required
+
+  -"gotop" Beautiful alternative to htop
+
+  -"neofetch" display system information in an aesthetic manner 
