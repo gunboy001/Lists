@@ -164,7 +164,7 @@
 -Changing keyboard layout:
     Source: https://superuser.com/questions/1147320/how-to-change-keyboard-layout-in-i3
     In the system console type "layout <layout>"
-    In i3 (and possibly other wms) "setxkbmap -layout <layout>"
+    In i3, dwm (and possibly other wms) "setxkbmap -layout <layout>"
 
 -"https://wiki.archlinux.org/index.php/systemd" just helpful
 
@@ -390,6 +390,22 @@
   Use "haveged" instead of "rng-tools"
   Under KDE uninstall everything PIM or akonadi related
   Minimize the number of needed applications and daemons
+
+-Better battery management:
+  Refers to: https://wiki.archlinux.org/index.php/TLP
+  TLP is a tool daemon which manages the power consumption of your laptop and
+    automatically enables or disables power saving features.
+  To use it install: "tlp", "tlp-rdw" (for radio devices), "acpi_call" (for
+    thinkpads), "tlpui-git" (AUR, GUI frontend)
+  After installing all of the beforementioned packeges be sure to start and
+    enable tlp using systemctl: "sysytemctl start tlp.service" "systemctl
+    enable tlp.service" "systemctl start tlp-sleep.service" systemctl enable
+    tlp-sleep.service"
+    and finally if you installed the radio davice wizard (tlp-rdw) run:
+    "systemctl enable NetworkManager-dispatcher.service" "systemctl mask
+    systemd-rfkill.service" "systemctl mask systemd-rfkill.socket"
+  Reboot and you're all set
+
 
 # NETWORK SECTION
 
