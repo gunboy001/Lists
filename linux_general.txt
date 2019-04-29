@@ -498,4 +498,29 @@
 
   -"gotop" Beautiful alternative to htop
 
-  -"neofetch" display system information in an aesthetic manner 
+  -"neofetch" display system information in an aesthetic manner
+  
+  -"feh" a simple image wiever that can also set the background
+  
+  -"i3-lock" and "i3-lock-wrapper" a simple and suckless lock screen
+
+  -"st" a trurly suckless terminal
+  
+  # VIM COMMANDS
+    
+    COMMANDS
+        :q to quit
+        :w to write 
+        a combination of the two 
+        :!.. to force a command (:q! to force exit without saoving)
+        ?... to search
+        n to advance in the search
+        
+    BINDINGS
+        p to paste
+        y to yank (copy)
+        d to cut
+        u to undo
+        Ctrl-r to redo
+        v to enter visual mode (selection)
+        Ctrl-s disables terminal input, press Ctrl-q to re-enable it
