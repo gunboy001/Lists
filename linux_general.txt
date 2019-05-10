@@ -480,6 +480,12 @@
   "echo 1 > /proc/sys/net/ipv4/ip_forward"
   To revert it back:
     "echo 0 > /proc/sys/net/ipv4/ip_forward"
+    
+-Manually changing ip address of a given network card:
+    run:
+        "ip addr add <ip>/<mask> dev <interface>"
+    where ip is the desired ip and mask is the desired network mask in 2 digit format, 
+    ex: "192.168.1.2/24" where 24 expands to 255.255.255.0
 
 # USEFUL PROGRAMS
 
@@ -504,7 +510,7 @@
   
   -"i3-lock" and "i3-lock-wrapper" a simple and suckless lock screen
 
-  -"st" a trurly suckless terminal
+  -"st" a trurly suckless terminal with support for images, unicode and truecolor
   
   # VIM COMMANDS
     
