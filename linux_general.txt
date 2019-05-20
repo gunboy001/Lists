@@ -512,6 +512,14 @@
 
   -"st" a trurly suckless terminal with support for images, unicode and truecolor
   
+  -"rivalcfg" tool to configure steelseries mice in loonix
+  
+  -"cmus" simple terminal music player written in c
+  
+  -"mps-youtube" terminal youtube music player
+  
+  -"mpv" required for above, extensible video/media player
+  
   # VIM COMMANDS
     
     COMMANDS
