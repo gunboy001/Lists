@@ -40,6 +40,10 @@ use xrandr to change resolution
     xrandr --output <monitor> --mode <resolution>
     the mode has to be supported, check supported modes with 'xrandr'
     if your monitor resolution is not listed try:
+    cvt 1920 1080 60
+    this gives you a modeline, paste it into:
+    xrandr --newmode <modeline>
+    then do
     xrandr --addmode <monitor> <resolution>
     
 install noto-fonts and noto-fonts-cjk for basic fonts
@@ -51,3 +55,7 @@ notifications: install libnotify notification-daemon dunst
 > profit
 
 for global hotkeys install: sxhkd, configure it and add sxhkd & to .xinitrc
+
+kakoune is a cool editor
+nnn is the best file explorer
+to install musl just install the package on arch

@@ -172,6 +172,8 @@
 
 -To list all partitions "sudo fdisk -l"
 
+-To list all partition UUIDs "sudo blkid"
+
 -To check a disk's health you need "smartmontools", first check system compatibility with "sudo smartctl -c /dev/sdX"
   then either do a short test "sudo smartctl -t short /dev/sdX" or a long test "sudo smartctl -t long /dev/sdX"
   lastly do "sudo smartctl -H /dev/sdX" to get the results
@@ -203,6 +205,11 @@
   
 -Arduino not starting:
   Try installing "arduino-avr-core" package
+  
+-Cannot scroll down in VIM on st:
+    Source: (woeking on it)
+    one solution is to add "set ttymouse=sgr" to your .vimrc
+    WIP
 
 -Theming gnome:
   download the theme packages at "https://www.gnome-look.org/" and unzip them
@@ -294,6 +301,9 @@
   Source: https://wiki.archlinux.org/index.php/Media_Transfer_Protocol
   Android devices use the MTP interface, to be able to access them in your file manager it is usually required
     to install the packages: "libmtp" "gvfs-mtp" and "gvfs-gphoto2"
+  If running a KDE installation with dolphin mtp support is integrated into
+  kio-extras (dolphin dependency)
+    NOTE: running multiple mtp tools can cause errors (gvfs-mtp and kio-extras)
     NOTE: Apple devices require the "gvfs-afc" package, and the "gamin" package is also recommended
 
 -File previews on KDE (Dolphin):
