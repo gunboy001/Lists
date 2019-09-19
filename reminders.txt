@@ -75,3 +75,12 @@
   https://threeneurons.wordpress.com/miscellaneous-projects/improvised-tube%20sockets/
   https://threeneurons.wordpress.com/nixie-power-supply/
   https://threeneurons.wordpress.com/links/data-sheets/
+  
+-To make the KEY-ID fido u2f key work on linux add the following udev rule at /etc/udev/rules.d/70-u2f.rules
+    # this udev file should be used with udev 188 and newer
+    ACTION!="add|change", GOTO="u2f_end"
+
+    # Key-ID FIDO U2F
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="096e", ATTRS{idProduct}=="0850|0880", TAG+="uaccess"
+
+    LABEL="u2f_end" 
