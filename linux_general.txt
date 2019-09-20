@@ -48,7 +48,7 @@
       although it isn't as visually appealing as pamac and requires a gtk sudo permission
       package such as "blank don't remember"
   Ranking mirrors based on speed:
-    
+
 
 -Network management WIP
   Arch uses netctl to manage connections, all the config files and examples are under
@@ -155,12 +155,12 @@
     "apt list --installed"
   With pacman:
     "pacman -Qqe"
-    
+
 -Changing the default shell
     To change your default shell to something other than bash use:
     "chsh -s full-path-to-shell" for example "chsh -s /bin/zsh"
     to list all installed shells use "chsh -l"
-    
+
 -Changing keyboard layout:
     Source: https://superuser.com/questions/1147320/how-to-change-keyboard-layout-in-i3
     In the system console type "layout <layout>"
@@ -202,10 +202,10 @@
     type as superuser "dosfsck -a /dev/sdb1"
     remount
     profit
-  
+
 -Arduino not starting:
   Try installing "arduino-avr-core" package
-  
+
 -Cannot scroll down in VIM on st:
     Source: (woeking on it)
     one solution is to add "set ttymouse=sgr" to your .vimrc
@@ -361,6 +361,8 @@
   On arch install the package "intel-undervolt" from AUR and edit it's configuration file
   located in /etc/intel-undervolt.conf, changing the values from 0 to -number results in that
   number of millivolts taken from the CPU voltage.
+  NOTE: on voidlinux use the pip3 package undervolt follow: https://wiki.voidlinux.org/Undervolting
+    for more info.
   The following are the parts affected:
     "CPU" changes the CPU core voltage
     "GPU" changes the integrated GPU voltage
@@ -395,6 +397,18 @@
   NOTE: as every parameter has the potential to cause weird issues it is recommended to test them first by appending them
   to the boot command (either in GRUB, rEFInd or systemd-boot) using the syntax: i915.enable_dc=1
   After having enabled the options you can check if they were correctly applied by running "systool -m i915 -av" as root
+
+-Screen tearing:
+  Refers to: https://wiki.archlinux.org/index.php/Intel_graphics#Tearing
+  Enable the option "TearFree" of the driver:
+  File: /etc/X11/xorg.conf.d/20-intel.conf
+  Content:
+    Section "Device"
+    Identifier "Intel Graphics"
+    Driver "intel"
+
+    Option "TearFree" "true"
+    EndSection
 
 -General tweaks:
   Use "haveged" instead of "rng-tools"
@@ -490,11 +504,11 @@
   "echo 1 > /proc/sys/net/ipv4/ip_forward"
   To revert it back:
     "echo 0 > /proc/sys/net/ipv4/ip_forward"
-    
+
 -Manually changing ip address of a given network card:
     run:
         "ip addr add <ip>/<mask> dev <interface>"
-    where ip is the desired ip and mask is the desired network mask in 2 digit format, 
+    where ip is the desired ip and mask is the desired network mask in 2 digit format,
     ex: "192.168.1.2/24" where 24 expands to 255.255.255.0
 
 # USEFUL PROGRAMS
@@ -515,31 +529,31 @@
   -"gotop" Beautiful alternative to htop
 
   -"neofetch" display system information in an aesthetic manner
-  
+
   -"feh" a simple image wiever that can also set the background
-  
+
   -"i3-lock" and "i3-lock-wrapper" a simple and suckless lock screen
 
   -"st" a trurly suckless terminal with support for images, unicode and truecolor
-  
+
   -"rivalcfg" tool to configure steelseries mice in loonix
-  
+
   -"cmus" simple terminal music player written in c
-  
+
   -"mps-youtube" terminal youtube music player
-  
+
   -"mpv" required for above, extensible video/media player
-  
+
   # VIM COMMANDS
-    
+
     COMMANDS
         :q to quit
-        :w to write 
-        a combination of the two 
+        :w to write
+        a combination of the two
         :!.. to force a command (:q! to force exit without saoving)
         ?... to search
         n to advance in the search
-        
+
     BINDINGS
         p to paste
         y to yank (copy)
