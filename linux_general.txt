@@ -397,6 +397,9 @@
   NOTE: as every parameter has the potential to cause weird issues it is recommended to test them first by appending them
   to the boot command (either in GRUB, rEFInd or systemd-boot) using the syntax: i915.enable_dc=1
   After having enabled the options you can check if they were correctly applied by running "systool -m i915 -av" as root
+  (systool is part of sysfsutils)
+  NOTE:on voidlinux the modprobe .conf files must go inside /lib/modprobe.d/ and instead of using mkinitcpio to regenerate 
+  the initramfs use "dracut --force"
 
 -Screen tearing:
   Refers to: https://wiki.archlinux.org/index.php/Intel_graphics#Tearing
