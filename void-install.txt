@@ -1,14 +1,57 @@
-Fixing Font problems 03-10-2019:
-	as it turns out xorg-fonts causes the issue so unse noto-fonts instead
+<ISSUES>
+	Fixing Font problems 03-10-2019:
+		as it turns out xorg-fonts causes the issue so unse noto-fonts instead
+	
+	Udev rules not applying:
+		in void the default path for udev rules is /usr/lib/udev/rules.d
+	
+	U2f rules not working:
+		install the pachage pam-u2f then navigate to the rules folder and check 
+		70-u2f.rules for your specific key, if it is not present add it at the 
+		bottom following the same format as the other keys
+	
+	"Unfixable" errors at startup:
+		change the loglevel to 3 in the grub config file located at /etc/default/grub
+	
+	For better font rendering follow:
+		http://blog.brunomiguel.net/geekices/how-to-get-good-font-rendering-in-void-linux/
 
-Udev rules not applying:
-	in void the default path for udev rules is /usr/lib/udev/rules.d
+<PACKAGES>
+	Base install:
+	
+		Package					|		Description
+		--------------------------------------------------------------
+		acpi					|		battery management and event handling
+		git						|		version control
+		haveged					|		entropy generation
+		htop					|		resource monitor
+		vim						|		terminal editor
+		socklog-void			|		system logs
+		lm_sensors				|		sensors
+		udevil					|		mount and unmount as normal user
+		ntfs-3g					|		ntfs support
+		chrony					|		ntp time sync
+		base-devel				|		needed by a lot of stuff
+		intel-ucode				|		ucode for intel cpus
+		wget					|		download stuff from the web
+		pamixer					|		get the pulseaudio volume
+		brightnessctl			|		conttrol the backlight
+		pulseaudio				|		audio server
+		#alsa-utils				|		base mixer
+		sysfsutils				|		system administration utilities
+		tlp						|		laptop power management
+		wicd					|		wireless and wired connection manager
+		bluez					|		bluetooth manager
 
-U2f rules not working:
-	install the pachage pam-u2f then navigate to the rules folder and check 
-	70-u2f.rules for your specific key, if it is not present add it at the 
-	bottom following the same format as the other keys
-
-"Unfixable" errors at startup:
-	change the loglevel to 3 in the grub config file located at /etc/default/grub
-
+	Xorg base:
+	
+		Package					|		Description
+		-------------------------------------------------------------
+		xorg-minimal			|		minimal xorg packages
+		xf86-input-synaptics	|		touchpad driver
+		xinit					|		start x instance
+		xev						|		get key codes
+		setxkbmap				|		set keyboard layout
+		xrandr					|		set scrreen resolution
+		mesa-intel-dri			|		intel gl driver
+		
