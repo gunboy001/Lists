@@ -17,6 +17,14 @@
 		http://blog.brunomiguel.net/geekices/how-to-get-good-font-rendering-in-void-linux/
 
 <PACKAGES>
+	legend: #			unnecessary but good to have
+			##			unnecessary but cute to have
+			*			has use cases
+			(flatpak) 	installed with flatpak
+			(g)			installed manually and git
+			(xg) 		installed with xbps first then manually and git
+			(pip3)		installed with pip3
+	
 	Base install:
 	
 		Package					|		Description
@@ -24,8 +32,8 @@
 		acpi					|		battery management and event handling
 		git						|		version control
 		haveged					|		entropy generation
-		htop					|		resource monitor
-		vim						|		terminal editor
+	##	htop					|		resource monitor
+	##	vim						|		terminal editor
 		socklog-void			|		system logs
 		lm_sensors				|		sensors
 		udevil					|		mount and unmount as normal user
@@ -37,11 +45,12 @@
 		pamixer					|		get the pulseaudio volume
 		brightnessctl			|		conttrol the backlight
 		pulseaudio				|		audio server
-		#alsa-utils				|		base mixer
-		sysfsutils				|		system administration utilities
+	#	alsa-utils				|		base mixer
+	#	sysfsutils				|		system administration utilities
 		tlp						|		laptop power management
 		wicd					|		wireless and wired connection manager
 		bluez					|		bluetooth manager
+	##	ufetch (g)				|		system info	
 
 	Xorg base:
 	
@@ -54,4 +63,94 @@
 		setxkbmap				|		set keyboard layout
 		xrandr					|		set scrreen resolution
 		mesa-intel-dri			|		intel gl driver
-		
+		xf86-video-intel		|		xorg intel driver for hardware acceleration
+		noto-fonts-ttf			|		main fonts
+		noto-fonts-cjk			|		asian fonts
+		noto-fonts-extra		|		extra fonts
+		noto-fonts-emoji		|		emojis
+
+	Desktop environment:
+
+		Package					|		Description					|		Patches
+		--------------------------------------------------------------------------------------------
+		dwm (xg)				|		window manager				|		fancybar, fullgaps
+		libX11-devel			|		required by dwm				|
+		libXft-devel			|		required by dwm				|
+		libXinerama-devel		|		required by dwm				|
+		slstatus (g)			|		status bar for dwm			|
+		xsetroot				|		required for slstatus		|
+		st (xg)					|		terminal emulator			|		clipboard, scrollback, scrollback-mouse,
+								|									|		scrollback-mouse-altscreen
+		dmenu (g)				|		simple menu					|
+		rofi					|		gui application menu		|
+		zsh						|		default shell				|
+		zsh-autosuggestions		|		fish-like suggestions		|
+		zsh-syntax-highlighting	|		fish-like syntax high.		|
+		zsh-completions			|		command completion			|
+		cups					|		print server				|
+		cups-filters			|		extra cups drivers			|
+		cups-pdf				|		cups pdf support			|
+		gutenprint				|		extra cups drivers			|
+		foomatic-db				|		print drivers database		|
+		foomatic-db-engine		|									|
+		foomatic-db-nonfree		|		nonfree drivers				|
+		dunst					|		notification engine			|
+		blueman					|		bluetooth manager			|
+		sxhkd					|		bind hotkeys to commands	|
+		xob						|		simple progress bar			|
+		pam-u2f					|		u2f-key support				|
+	#	u2f-hidraw-policy		|									|
+		lxappearance			|		change gtk theme and icons	|
+	#	arandr					|		gui for xrandr				|
+	*	flatpak					|		applications non in repo	|
+	#	xdg-desktop-portal		|		required for flatpak		|
+	#	xdg-desktop-portal-gtk	|		required for flatpak		|
+	#	xdg-user-dirs			|		required for flatpak		|
+	#	xdg-user-dirs-gtk		|		required for flatpak		|
+	#	xdg-utils				|		flatpak & appimages			|
+		feh						|		image viewer and wallpaper	|
+	#	pavucontrol				|		graphical audio control		|
+
+	Applications: (all of these have substitutes as such are not mandatory)
+
+		Package					|		Description
+		---------------------------------------------------------------------
+		xarchiver				| 		archive manager (zip, tar, etc.)
+		cmus					|		console music player
+		gparted					|		graphical partition manager
+		micro					|		console text editor
+		sxiv					|		simple image viewer
+		mpv						|		simple video and media player
+		scrot					|		screenshot tool
+		ImageMagick				|		console image manipulator
+		mupdf					|		simple pdf reader
+		vscode					|		uC IDE with platformio
+		abiword (flatpak)		|		microsoft word alternative
+		telegram-desktop		|		telegram desktop
+		arduino					|		arduino IDE
+		hexchat					|		IRC client
+		pcmanfm					|		graphical file manager
+		transmission-gtk		|		torrent client
+		icecat					|		web browser
+		kicad					|		electonic design and simulation suite
+
+	Void specific:
+
+		Package					|		Description
+		------------------------------------------------------------------
+		vpm						|		xbps wrapper
+		pip3					|		python package manager
+		undervolt (pip3)		|		undervolt utility
+
+	Games:
+
+		Package					|		Description
+		--------------------------------------------------------------------
+		MultiMC					|		Minecraft launcher
+
+	Fonts:
+	
+		Package					|		Description
+		--------------------------------------------------------------------
+		font-hack-ttf			|		good monospace font
+	
