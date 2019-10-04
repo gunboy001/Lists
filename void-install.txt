@@ -1,1 +1,14 @@
-heyy
+Fixing Font problems 03-10-2019:
+	as it turns out xorg-fonts causes the issue so unse noto-fonts instead
+
+Udev rules not applying:
+	in void the default path for udev rules is /usr/lib/udev/rules.d
+
+U2f rules not working:
+	install the pachage pam-u2f then navigate to the rules folder and check 
+	70-u2f.rules for your specific key, if it is not present add it at the 
+	bottom following the same format as the other keys
+
+"Unfixable" errors at startup:
+	change the loglevel to 3 in the grub config file located at /etc/default/grub
+
