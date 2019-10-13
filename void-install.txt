@@ -42,7 +42,7 @@
 		base-devel				|		needed by a lot of stuff
 		intel-ucode				|		ucode for intel cpus
 		wget					|		download stuff from the web
-		pamixer					|		get the pulseaudio volume
+		pamixer					|		control pulseaudio volume
 		brightnessctl			|		conttrol the backlight
 		pulseaudio				|		audio server
 	#	alsa-utils				|		base mixer
@@ -59,9 +59,10 @@
 		xorg-minimal			|		minimal xorg packages
 		xf86-input-synaptics	|		touchpad driver
 		xinit					|		start x instance
-		xev						|		get key codes
+	#	xev						|		get key codes
 		setxkbmap				|		set keyboard layout
 		xrandr					|		set scrreen resolution
+		xrdb					|		xresources
 		mesa-intel-dri			|		intel gl driver
 		xf86-video-intel		|		xorg intel driver for hardware acceleration
 		noto-fonts-ttf			|		main fonts
@@ -73,7 +74,7 @@
 
 		Package					|		Description					|		Patches
 		--------------------------------------------------------------------------------------------
-		dwm (xg)				|		window manager				|		fancybar, fullgaps
+		dwm (xg)				|		window manager				|		fancybar, fullgaps, xrdb
 		libX11-devel			|		required by dwm				|
 		libXft-devel			|		required by dwm				|
 		libXinerama-devel		|		required by dwm				|
@@ -124,8 +125,9 @@
 		scrot					|		screenshot tool
 		ImageMagick				|		console image manipulator
 		mupdf					|		simple pdf reader
+		qpdfview				|		in my humble opinion better than mupdf
 		vscode					|		uC IDE with platformio
-		abiword (flatpak)		|		microsoft word alternative
+		abiword					|		microsoft word alternative
 		telegram-desktop		|		telegram desktop
 		arduino					|		arduino IDE
 		hexchat					|		IRC client
@@ -133,6 +135,9 @@
 		transmission-gtk		|		torrent client
 		icecat					|		web browser
 		kicad					|		electonic design and simulation suite
+		pywal					|		wallpaper setter and color scheme generator
+		gotop					|		process viewer similar to htop
+		dte						|		simple terminal editor
 
 	Void specific:
 
@@ -147,10 +152,14 @@
 		Package					|		Description
 		--------------------------------------------------------------------
 		MultiMC					|		Minecraft launcher
+		Lutris					|		Game launcher
 
 	Fonts:
 	
 		Package					|		Description
 		--------------------------------------------------------------------
 		font-hack-ttf			|		good monospace font
-	
+
+Kernel patches for intel cpus:
+	All the patches are from the clearlinux project and are specifically aimed at
+	intel cpus

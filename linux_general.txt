@@ -57,6 +57,13 @@
     https://www.raspberrypi.org/forums/viewtopic.php?t=54080
     https://wiki.archlinux.org/index.php/Dhcpcd#Static_profile
 
+# VOID LINUX SECTION
+
+-Hold pkgs form updating
+	hold: xbps-pkgdb -m hold <pkg>
+	unhold: xbps-pkgdb -m unhold <pkg>
+	list on hold: xbps-query --list-hold-pkgs
+
 # SYSADMIN SECTION
 
 -"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
