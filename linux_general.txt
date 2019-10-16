@@ -181,6 +181,27 @@
 
 -To list all partition UUIDs "sudo blkid"
 
+-Change default file openers:
+	Source: https://wiki.archlinux.org/index.php/XDG_MIME_Applications
+	create a file (if not present) in .config called mimeapps.list
+	search your file extension in https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
+	add or modify the entry to that mimetype to be opened with the desired app.desktop
+	IF app.desktop IS NOT PRESENT:
+		look again in /usr/share/applications
+		if it is not present make one and put it into:
+			~/.local/share/applications/
+		with the format:
+			[Desktop Entry]
+			Name=Xpdf
+			Comment=Views Adobe PDF (acrobat) files
+			Exec=xpdf %f
+			Terminal=false
+			Type=Application
+			Icon=xpdf
+			Categories=Office;
+			MimeType=application/pdf;
+		NOTE: Exec= are the execution parameters
+
 -To check a disk's health you need "smartmontools", first check system compatibility with "sudo smartctl -c /dev/sdX"
   then either do a short test "sudo smartctl -t short /dev/sdX" or a long test "sudo smartctl -t long /dev/sdX"
   lastly do "sudo smartctl -H /dev/sdX" to get the results

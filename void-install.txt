@@ -124,7 +124,6 @@
 		mpv						|		simple video and media player
 		scrot					|		screenshot tool
 		ImageMagick				|		console image manipulator
-		mupdf					|		simple pdf reader
 		qpdfview				|		in my humble opinion better than mupdf
 		vscode					|		uC IDE with platformio
 		abiword					|		microsoft word alternative
@@ -137,7 +136,7 @@
 		kicad					|		electonic design and simulation suite
 		pywal					|		wallpaper setter and color scheme generator
 		gotop					|		process viewer similar to htop
-		dte						|		simple terminal editor
+		tcc						|		tiny C compiler
 
 	Void specific:
 
