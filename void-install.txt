@@ -48,9 +48,11 @@
 	#	alsa-utils				|		base mixer
 	#	sysfsutils				|		system administration utilities
 		tlp						|		laptop power management
-		wicd					|		wireless and wired connection manager
+		connman					|		wireless and wired connection manager
+		openvpn					|		vpn provider
 		bluez					|		bluetooth manager
 	##	ufetch (g)				|		system info	
+		irqbalance				|		distribute interrupts for better performace
 
 	Xorg base:
 	
@@ -59,7 +61,6 @@
 		xorg-minimal			|		minimal xorg packages
 		xf86-input-synaptics	|		touchpad driver
 		xinit					|		start x instance
-	#	xev						|		get key codes
 		setxkbmap				|		set keyboard layout
 		xrandr					|		set scrreen resolution
 		xrdb					|		xresources
@@ -69,6 +70,7 @@
 		noto-fonts-cjk			|		asian fonts
 		noto-fonts-extra		|		extra fonts
 		noto-fonts-emoji		|		emojis
+		xclip					|		clipboard support
 
 	Desktop environment:
 
@@ -100,7 +102,6 @@
 		sxhkd					|		bind hotkeys to commands	|
 		xob						|		simple progress bar			|
 		pam-u2f					|		u2f-key support				|
-	#	u2f-hidraw-policy		|									|
 		lxappearance			|		change gtk theme and icons	|
 	#	arandr					|		gui for xrandr				|
 	*	flatpak					|		applications non in repo	|
@@ -108,7 +109,7 @@
 	#	xdg-desktop-portal-gtk	|		required for flatpak		|
 	#	xdg-user-dirs			|		required for flatpak		|
 	#	xdg-user-dirs-gtk		|		required for flatpak		|
-	#	xdg-utils				|		flatpak & appimages			|
+		xdg-utils				|		flatpak & appimages			|
 		feh						|		image viewer and wallpaper	|
 	#	pavucontrol				|		graphical audio control		|
 
@@ -126,17 +127,15 @@
 		ImageMagick				|		console image manipulator
 		qpdfview				|		in my humble opinion better than mupdf
 		vscode					|		uC IDE with platformio
-		abiword					|		microsoft word alternative
-		telegram-desktop		|		telegram desktop
 		arduino					|		arduino IDE
-		hexchat					|		IRC client
+		weechat					|		Terminal IRC client
 		pcmanfm					|		graphical file manager
 		transmission-gtk		|		torrent client
 		icecat					|		web browser
 		kicad					|		electonic design and simulation suite
 		pywal					|		wallpaper setter and color scheme generator
 		gotop					|		process viewer similar to htop
-		tcc						|		tiny C compiler
+		fontmanager				|		font manager and installer
 
 	Void specific:
 
@@ -146,12 +145,6 @@
 		pip3					|		python package manager
 		undervolt (pip3)		|		undervolt utility
 
-	Games:
-
-		Package					|		Description
-		--------------------------------------------------------------------
-		MultiMC					|		Minecraft launcher
-		Lutris					|		Game launcher
 
 	Fonts:
 	

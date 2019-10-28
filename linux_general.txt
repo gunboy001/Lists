@@ -50,12 +50,21 @@
   Ranking mirrors based on speed:
 
 
--Network management WIP
+-Network management
   Arch uses netctl to manage connections, all the config files and examples are under
     /etc/netctl/ and /etc/netctl/examples
   References: https://wiki.archlinux.org/index.php/Netctl
     https://www.raspberrypi.org/forums/viewtopic.php?t=54080
     https://wiki.archlinux.org/index.php/Dhcpcd#Static_profile
+
+-Network managers:
+	NetworkManager: default in many distros pretty good but resorce heavy (also depends on systemd?)
+		void: https://docs.voidlinux.org/config/network/networkmanager.html
+		arch: https://wiki.archlinux.org/index.php/NetworkManager
+	Connman: small and fast, does all you need and doesn't hog on resources and has vpn support
+		void: https://wiki.voidlinux.org/Connman
+		arch: https://wiki.archlinux.org/index.php/ConnMan
+	Wicd: outdated by now and written in python 2.7, still pretty good for simple configurations
 
 # VOID LINUX SECTION
 
@@ -162,6 +171,8 @@
     "apt list --installed"
   With pacman:
     "pacman -Qqe"
+  With xbps:
+  	xbps-query -m
 
 -Changing the default shell
     To change your default shell to something other than bash use:
@@ -235,9 +246,12 @@
   Try installing "arduino-avr-core" package
 
 -Cannot scroll down in VIM on st:
-    Source: (woeking on it)
     one solution is to add "set ttymouse=sgr" to your .vimrc
-    WIP
+
+-DEL key not working in st:
+	source: https://www.reddit.com/r/archlinux/comments/8w4unu/setting_up_the_delete_key_in_st/
+	add: tput smkx
+	in your zshrc or eqiuvalent
 
 -Theming gnome:
   download the theme packages at "https://www.gnome-look.org/" and unzip them
@@ -248,6 +262,8 @@
   Refers to: https://wiki.archlinux.org/index.php/CUPS#Installation
   Install the "cups" package then start and enable it
   To start a print use whatever printing program you have
+  if you do not have a print manager program you can always open up the web interface in your browser at:
+  	localhost:631
   NOTE: you might need to add printers and to do so, in some cases like for KDE, you'll need to be logged as root
 
 -Adding executables and shortcuts:
