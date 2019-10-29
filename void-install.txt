@@ -77,6 +77,7 @@
 		Package					|		Description					|		Patches
 		--------------------------------------------------------------------------------------------
 		dwm (xg)				|		window manager				|		fancybar, fullgaps, xrdb
+								|									|		bottomstack
 		libX11-devel			|		required by dwm				|
 		libXft-devel			|		required by dwm				|
 		libXinerama-devel		|		required by dwm				|
@@ -84,6 +85,7 @@
 		xsetroot				|		required for slstatus		|
 		st (xg)					|		terminal emulator			|		clipboard, scrollback, scrollback-mouse,
 								|									|		scrollback-mouse-altscreen
+								|									|		xresources
 		dmenu (g)				|		simple menu					|
 		rofi					|		gui application menu		|
 		zsh						|		default shell				|
@@ -129,13 +131,11 @@
 		ImageMagick				|		console image manipulator
 		qpdfview				|		in my humble opinion better than mupdf
 		vscode					|		uC IDE with platformio
-		arduino					|		arduino IDE
 		weechat					|		Terminal IRC client
 		pcmanfm					|		graphical file manager
 		transmission-gtk		|		torrent client
 		icecat					|		web browser
 		kicad					|		electonic design and simulation suite
-		pywal					|		wallpaper setter and color scheme generator
 		gotop					|		process viewer similar to htop
 		fontmanager				|		font manager and installer
 

@@ -341,6 +341,16 @@
   If your distro users systemctl the easiest way to check errors is to look up the recent
     events in the system logs to do that type "journalctl"
 
+-Getting the right dpi: (only applies to xorg)
+	Resources: https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI
+	First of all get the optimal dpi for your screen:
+		http://dpi.lv/
+	Then get the current dpi that the server is set on: (requires dpyinfo)
+		xdpyinfo | grep -B2 resolution
+	if it si already set to the right dpi you are good to go, else add to your
+	xinitrc or xprofile (if using a display manager):
+		xradr --dpi <your dpi>
+
 -Using android devices:
   Source: https://wiki.archlinux.org/index.php/Media_Transfer_Protocol
   Android devices use the MTP interface, to be able to access them in your file manager it is usually required
@@ -496,6 +506,8 @@
   Sites for public IP discovery and information gathering:
     https://www.iplocation.net/
     http://www.whatsmyip.org/
+  With ip (standard)
+  	ip link show
 
 -Changing the MAC address:
   Using macchanger:
@@ -557,55 +569,3 @@
         "ip addr add <ip>/<mask> dev <interface>"
     where ip is the desired ip and mask is the desired network mask in 2 digit format,
     ex: "192.168.1.2/24" where 24 expands to 255.255.255.0
-
-# USEFUL PROGRAMS
-
-  -"youtube-dl" is a tool that allows you to download content (eg. videos, audio and thumbnails)
-    from not only youtube but also from other streaming sites
-
-  -"firejail" is a program used to isolate other programs in a sandbox to make their execution
-    more secure, giving them minimal access to the system files
-
-  -"ms-office-online" (AUR) the online office suite for 'offline' use
-    NOTE: needs registration to the Microsoft services
-
-  -"maybe" lets you see what a certain command does before it does it, ex "maybe rm -rf /home" lets you see which files will be affected
-    by rm.
-    NOTE: this is a python script, to install it use "sudo pip install maybe", the "python-pip" package is required
-
-  -"gotop" Beautiful alternative to htop
-
-  -"neofetch" display system information in an aesthetic manner
-
-  -"feh" a simple image wiever that can also set the background
-
-  -"i3-lock" and "i3-lock-wrapper" a simple and suckless lock screen
-
-  -"st" a trurly suckless terminal with support for images, unicode and truecolor
-
-  -"rivalcfg" tool to configure steelseries mice in loonix
-
-  -"cmus" simple terminal music player written in c
-
-  -"mps-youtube" terminal youtube music player
-
-  -"mpv" required for above, extensible video/media player
-
-  # VIM COMMANDS
-
-    COMMANDS
-        :q to quit
-        :w to write
-        a combination of the two
-        :!.. to force a command (:q! to force exit without saoving)
-        ?... to search
-        n to advance in the search
-
-    BINDINGS
-        p to paste
-        y to yank (copy)
-        d to cut
-        u to undo
-        Ctrl-r to redo
-        v to enter visual mode (selection)
-        Ctrl-s disables terminal input, press Ctrl-q to re-enable it
