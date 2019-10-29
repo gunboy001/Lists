@@ -119,8 +119,10 @@
 		---------------------------------------------------------------------
 		xarchiver				| 		archive manager (zip, tar, etc.)
 		cmus					|		console music player
+		cmus-pulseaudio			|		cmus pluseaudio server support
 		gparted					|		graphical partition manager
 		micro					|		console text editor
+		sublime-text3			|		graphical text editor
 		sxiv					|		simple image viewer
 		mpv						|		simple video and media player
 		scrot					|		screenshot tool
