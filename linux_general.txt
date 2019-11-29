@@ -75,6 +75,15 @@
 
 # SYSADMIN SECTION
 
+-Fixing mandoc.db permission denied
+	Source: https://old.reddit.com/r/voidlinux/comments/dsdn5a/did_sudo_behaviour_change_recently/
+	If you ran "sudo makewatis ..." then it is possible that the file permissions
+	of /usr/share/man/mandoc.db and /usr/local/share/man/mandoc.db were changed from
+	644 (rw-r--r--) to 600 (rw-------), giving the error when viewing man pages
+	"... mandoc.db permission denied" or "data changed but could not update mandoc.db" etc.
+	To fix this simply do: sudo chmod 644 /usr/share/man/mandoc.db
+	                       sudo chmod 644 /usr/local/share/man/mandoc.db
+
 -"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
 
 -Basic commands:
