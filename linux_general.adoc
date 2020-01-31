@@ -1,287 +1,307 @@
--Qt for wayland requires qt5-wayland package and "export QT_QPA_PLATFORM=wayland"
+= An Open Source collection of common problems and solutions for *nix users
+Alessandro Mauri <alemauri001@gmail.com>
+v1.0, 2019-12-02
+:doctype: manpage
 
--You still have tor and "arm" to monitor it
+== Arch Linux
 
--Docker is pretty cool you should use it, https://www.kali.org/news/official-kali-linux-docker-images/
-  also works with wifite2, it basically is a shell-oriented low-weight high-performance virtual machine
-  wich can run prebuilt docker images or your personal docker images. Docs: https://docs.docker.com/
+=== Links useful during an arch install
+https://wiki.archlinux.org/index.php/Installation_guide[1], 
+https://wiki.archlinux.org/index.php/GRUB[2], 
+https://wiki.archlinux.org/index.php/General_recommendations#Users_and_groups[3], 
+https://wiki.archlinux.org/index.php/EFI_system_partition[4], 
+https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks[5], 
+https://wiki.archlinux.org/index.php/List_of_applications[6], 
 
-# ARCH SECTION
+=== Pacman commands
+* `pacman -Syy`: update repositories
+* `pacman -Su`: update packages
+* `pacman -Qdtq`: list unused/orphan packages
+* `pacman -R`: remove a package
+* `pacman -S`: install a package
+* `pacman -R $(pacman -Qdtq)`: remove orphaned packages recursively
+* `pacman -Rns`: remove packages and its dependencies recursively
+* `pacman -Rcs`: remove packages and its dependents recursively
+* `pacman -Ql`: list all package's files and locations
+* `pacman -Qqe`: list all installed packages
+* `pacman -Qc`: view package changelog
+* `pacman -Qm`: list packages not present in official repositories
+  
+If there are update related errors that you do not understand, do not panic
+issue a full update with the following commands:
+`sudo pacman -Syy` and then `sudo pacman -Su`
 
--Links useful during an arch install:
-    https://wiki.archlinux.org/index.php/Installation_guide
-    https://wiki.archlinux.org/index.php/GRUB
-    https://wiki.archlinux.org/index.php/General_recommendations#Users_and_groups
-    https://wiki.archlinux.org/index.php/EFI_system_partition
-    https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks
-    https://wiki.archlinux.org/index.php/List_of_applications
+If you get an error similar to `could not unlock database` when trying to
+issue a command that means that another program is using the package manager.
+If you feel like taking the risk of breaking your system try manually (and forcefully)
+removing the transaction lock file by issuing `rm -rf /var/lib/pacman/db.lck`
 
--Pacman commands:
-  "pacman -Syy" update repositories
-  "pacman -Su" update packages
-  "pacman -Qdtq" list unused/orphan packages
-  "pacman -R" remove a package
-  "pacman -S" install a package
-  "pacman -R $(pacman -Qdtq)" remove unused packages
-  "pacman -Rns" remove packages and its dependencies recursively
-  "pacman -Rcs" remove packages and its dependents recursively
-  "pacman -Ql" list all package's files and locations
-  "pacman -Qqe" list all installed packages
-  "pacman -Qc" view package changelog
-  "pacman -Qm" list packages not present in official repositories
-  If you panic just do "sudo pacman -Syy" and then "sudo pacman -Su"
-  "rm -rf /var/lib/pacman/db.lck" remove pacman's transaction lock file
-    (to solve "could not unlock database" error, which happen when pacman is already running)
-  NOTE: If all of a sudden everything is fucked up bad (like no GUI whatsowever)
-    check the pacman log at "/var/log/pacman.log" to see what went wrong and what got removed
-  To manage and download packages from the AUR use:
-    pikaur: https://github.com/actionless/pikaur#installation
-    yaourt (unmantained)
-  These are all wrappers which means they extend some functionalities of pacman to use
-    AUR, for example updating and installing packages (-Syu and -S)
-  NOTE: pacman wrappers don't need to be run as root since it's dangerous to
-    run PKGBUILD as such.
-  Pacman GUI frontends:
-    "pamac" based on gtk and it is the same GUI frontend in the gnome and KDE releases
-      of manjaro, to install use the package "pamac-aur" or "pamac-aur-git" from the AUR.
-    "octopi" is a lightweight GUI frontend for pacman and it is one of the most used ones
-      although it isn't as visually appealing as pamac and requires a gtk sudo permission
-      package such as "blank don't remember"
-  Ranking mirrors based on speed:
+In the unfortunate event that all of a sudden everything fucked up bad
+(like no xorg or wayland or login session ...),
+check the pacman log at `/var/log/pacman.log` to see what went wrong and what got removed
+  
+=== AUR pacman wrappers
+* https://github.com/actionless/pikaur#installation[pikaur]
+* https://github.com/Jguer/yay[yay] 
+  
+Pacman GUI frontends (I advice you to not use them)::
+* `pamac`: based on gtk and it is the same GUI frontend in the gnome and KDE releases
+of manjaro, install `pamac-aur` or `pamac-aur-git` from the AUR.
+* `octopi`: is a lightweight GUI frontend for pacman and it is one of the most used ones
+although it isn't as visually appealing as pamac and requires a gtk permission manager.
+  
+=== Network management
+Sources::
+https://wiki.archlinux.org/index.php/Netctl[1]
+https://www.raspberrypi.org/forums/viewtopic.php?t=54080[2]
+https://wiki.archlinux.org/index.php/Dhcpcd#Static_profile[3]
 
+Arch uses netctl to manage connections, all the config files and examples are under
+`/etc/netctl/` `and /etc/netctl/examples` +
+*NOTE*: This is valid for every system that uses systemd(ick) 
 
--Network management
-  Arch uses netctl to manage connections, all the config files and examples are under
-    /etc/netctl/ and /etc/netctl/examples
-  References: https://wiki.archlinux.org/index.php/Netctl
-    https://www.raspberrypi.org/forums/viewtopic.php?t=54080
-    https://wiki.archlinux.org/index.php/Dhcpcd#Static_profile
+== Void Linux
 
--Network managers:
-	NetworkManager: default in many distros pretty good but resorce heavy (also depends on systemd?)
-		void: https://docs.voidlinux.org/config/network/networkmanager.html
-		arch: https://wiki.archlinux.org/index.php/NetworkManager
-	Connman: small and fast, does all you need and doesn't hog on resources and has vpn support
-		void: https://wiki.voidlinux.org/Connman
-		arch: https://wiki.archlinux.org/index.php/ConnMan
-	Wicd: outdated by now and written in python 2.7, still pretty good for simple configurations
+Hold package updates::
+* Hold: `xbps-pkgdb -m hold <pkg>`
+* Unhold: `xbps-pkgdb -m unhold <pkg>`
+* List packages on hold: `xbps-query --list-hold-pkgs`
 
-# VOID LINUX SECTION
+== Sysadmin stuff
 
--Hold pkgs form updating
-	hold: xbps-pkgdb -m hold <pkg>
-	unhold: xbps-pkgdb -m unhold <pkg>
-	list on hold: xbps-query --list-hold-pkgs
+=== Fixing mandoc.db permission denied
+*Source*: https://old.reddit.com/r/voidlinux/comments/dsdn5a/did_sudo_behaviour_change_recently/[link]
 
-# SYSADMIN SECTION
+If you ran `sudo makewatis ...` then it is possible that the file permissions
+of `/usr/share/man/mandoc.db` and `/usr/local/share/man/mandoc.db` were changed from
+644 (rw-r--r--) to 600 (rw-------), giving the error when viewing man pages
+`... mandoc.db permission denied` or `data changed but could not update mandoc.db` etc.
+To fix this simply do:
 
--Fixing mandoc.db permission denied
-	Source: https://old.reddit.com/r/voidlinux/comments/dsdn5a/did_sudo_behaviour_change_recently/
-	If you ran "sudo makewatis ..." then it is possible that the file permissions
-	of /usr/share/man/mandoc.db and /usr/local/share/man/mandoc.db were changed from
-	644 (rw-r--r--) to 600 (rw-------), giving the error when viewing man pages
-	"... mandoc.db permission denied" or "data changed but could not update mandoc.db" etc.
-	To fix this simply do: sudo chmod 644 /usr/share/man/mandoc.db
-	                       sudo chmod 644 /usr/local/share/man/mandoc.db
+	sudo chmod 644 /usr/share/man/mandoc.db
+	sudo chmod 644 /usr/local/share/man/mandoc.db
 
--"acpi" is kinda important in laptops "acpi -i" for info, also "thinkpad_acpi" should be noted
+=== Important packages
+* `acpi` gives information and control on battery and power status, it can also handle
+power related events (lid open/close, power button press, etc.)
+* `thinkpad_acpi` acpi addon specific to thinkpads
 
--Basic commands:
-  GREP:
-    G-REP or "grep" can be used to filter command results:
-    "ps ax | grep whatyouwant" and it will output the line containing "whatyouwant"
-    example "dmesg | grep whatyouwant"
-    NOTE: "|" is used to pipe the output in another program
-  PS:
-    Ps is a UNIX tool used to get information about the current status of the system
-    The most basic and or useful usage is to view all the running processes and the corresponding
-    UUIDs (like if you want to kill process and you need its UUID), that is done by appending "ax"
-    to ps: "ps ax"
-  KILL:
-    It kill the specified process given its UUID, syntax "kill <UUID>"
-  "|" and ">":
-    These are both "pipe" functions, they can pipe the output of a script or program into
-    something (via std i/o), but they are used differently in the sense that "|" is specifically
-    used to pipe the output into another program EX: "ps ax | grep gnome-shell", this outputs the UUIDs
-    of all the gnome-shell instances since the output of "ps ax" is piped into GREP which in turn
-    returns just the results of the query.
-    On the other hand ">" is used to pipe the output into a file EX: "ls -la > ls.txt", this puts
-    the output of ls into ls.txt which we can then read.
-  "whoami" and "groups":
-    they respectively output the current user and groups
-    NOTE: one alternative to "whoami" is "echo $USER" which can be used in scripts
-  FIND:
-    Sources:
-      https://www.cyberciti.biz/faq/how-do-i-find-all-the-files-owned-by-a-particular-user-or-group/
-      refer to man for all the available options
-    Basic syntax:
-      "find <dir> [OPTIONS]"
-    OPTIONS:
-      "-user <user>" find files owned by a particular user
-      "-group <group>" find files owned by a particular group
-      "-ls" list results in "ls" format:
-      "-name <filename>" find a specific file or pattern (*.txt)
+=== Qt in wayland
+To run QT prigrams in wayland install `qt5-wayland` and add the followind line somewhere 
+in your profile (.profile .zprofile .bash_profile etc.)
+`export QT_QPA_PLATFORM=wayland`
 
--Groups:
-  Adding users to groups:
-    "usermod -a -G group user"
-    reboot
-  Listing all groups:
-    "cut -d: -f1 /etc/group | sort"
+=== Monitor Tor network usage
+install the `arm` package and run it
 
--Users:
-  Creating a new user:
-    useradd -m user-name
-  Deleting an existing user:
-    userdel user-name
+=== Basic commands
+* `grep`: find the lines which contain the input string: +
+  `ps ax | grep <query>` and it will output the line containing the query +
+  `grep <query> file.txt` search matches in file +
+  `grep -i <query> file.txt` case insensitive search
+* `ps`: Ps is a UNIX tool used to get information about the current status of the system. +
+  The most basic and or useful usage is to view all the running processes and the corresponding
+  UUIDs, that is done by appending `ax` to ps: +
+  `ps ax`
+* `kill`: kill the specified process given its UUID: +
+  `kill <UUID>`
+* `killall`: kill all the processes which name matches the arguments: +
+  `killall <proc name>`
+* `|` and `>`:
+  These are both "pipe" functions, they can pipe the output of a script or program into
+  something (via std i/o), but they are used differently in the sense that `|` is
+  used to pipe the output into another program, example: +
+  `ps ax | grep xorg` this outputs all the runnng processes into grep as 
+  input, which in turn filters the result. +
+  On the other hand `>` is used to pipe the output into a file, example: +
+  `ls -la > ls.txt` this puts the output of ls into ls.txt which we can then read.
+  *NOTE*: `>` replaces everything that was in the file
+* `<`: same thing as `>` but in "reverse"
+* `>>` and `<<`: same as `<` and `>` but appends instead of replacing
+* `whoami` and `groups`:
+  they respectively output the current user and groups +
+  *NOTE*: one alternative to `whoami` is `echo $USER` which can be used in scripts
+* `find`: Basic syntax: +
+  `find <dir> [OPTIONS]` +
+Some options: +
+** `-user <user>`: find files owned by a particular user
+** `-group <group>`: find files owned by a particular group
+** `-ls`: list results in "ls" format:
+** `-name <filename>`: find a specific file or pattern (*.txt)
 
--Linux afterinstall (how to get thing working):
-  Bluetooth usage:
-    Refers to:
-      https://wiki.archlinux.org/index.php/Bluetooth_headset
-      https://wiki.archlinux.org/index.php/bluetooth
-    Start the "bluetooth.service" service then refer to:
-  Generating locales (languages and language support):
-    Add locales uncommenting them in /etc/locale.gen
-    Run "locale-gen"
-    Reboot
-    NOTE: if installing locales with a specific character set (russian, chinese, japanese)
-      it is needed to also install the specific fonts, refer to:
-      "https://wiki.archlinux.org/index.php/Localization" to find the specific font packages
-      and install them using pacman
-  Getting the graphics drivers:
-    For Intel graphics cards:
-      Refers to: https://wiki.archlinux.org/index.php/intel_graphics
-      mesa
-      lib32-mesa
-      vulkan-intel
-    For nvidia graphics cards:
-      Please refer to: https://wiki.archlinux.org/index.php/NVIDIA#Installation
-    For amd graphics cards:
-      mesa
-      lib32-mesa
-      xf86-video-ati: for Xorg hardware acceleration support
-      mesa-vdpau and lib32-mesa-vdpau: for accelerated video decoding
-  Adding entropy to your system:
-    Refers to: https://wiki.archlinux.org/index.php/Random_number_generation
-    This is useful as the kernel's built-in random number generator is very slow, as such
-    it makes tasks like loading the login manager a pain.
-    To solve this problem you can install some pseudo-random number generators such as:
-      "rng-tools" secure, uses more CPU
-      "haveged" fast and lightweight
-    NOTE: Keep in mind that these are not for secure systems and remember to start and enable the service
-          rngd.service
-  Getting NTFS support working:
-    Refers to: https://wiki.archlinux.org/index.php/NTFS-3G
-    Install the "ntfs-3g" package
+=== Group actions
+* Adding a user to a group: +
+  `usermod -a -G group user` then reboot
+* Listing all groups: +
+  `cut -d: -f1 /etc/group | sort`
+* Deleting a group: +
+  `groupdel <group name>` then reboot
 
--Listing installed packages:
-  With apt/apt-get:
-    "apt list --installed"
-  With pacman:
-    "pacman -Qqe"
-  With xbps:
-  	xbps-query -m
+=== Users actions
+* Creating a new user: +
+  `useradd -m user-name`
+* Deleting an existing user: +
+  `userdel user-name`
 
--Changing the default shell
-    To change your default shell to something other than bash use:
-    "chsh -s full-path-to-shell" for example "chsh -s /bin/zsh"
-    to list all installed shells use "chsh -l"
+=== Generating locales
+. Add locales by uncommenting them in `/etc/locale.gen`
+. generate locales by running `locale-gen`
+. Reboot
 
--Changing keyboard layout:
-    Source: https://superuser.com/questions/1147320/how-to-change-keyboard-layout-in-i3
-    In the system console type "layout <layout>"
-    In i3, dwm (and possibly other wms) "setxkbmap -layout <layout>"
+*NOTE*: some languages (russian, chinese, japanese) require specific fonts to be installed
+refer to: https://wiki.archlinux.org/index.php/Localization[link] for an incomplete list of specific fonts
+   
+=== Getting the graphics drivers
+For Intel graphics cards::
+*Source*: https://wiki.archlinux.org/index.php/intel_graphics[link] +
+Install `mesa` on arch or `mesa-intel-dri` on void and `xf86-video-intel`
+For nvidia graphics cards::
+Follow the steps in: https://wiki.archlinux.org/index.php/NVIDIA#Installation[link]
+For AMD graphics cards::
+Install: `mesa` on arch or `mesa-ati-dri` on void and `xf86-video-ati` for Xorg hardware acceleration support
+  
+=== Adding entropy to your system (faster boot times)
+*Source*: https://wiki.archlinux.org/index.php/Random_number_generation[link] +
+This is useful as the kernel's built-in random number generator is very slow, as such
+it makes tasks like loading the login manager a pain.
+To solve this problem you can install some pseudo-random number generators such as:
+* `rng-tools` secure but uses more CPU
+* `haveged` fast and lightweight but less secure
+*NOTE*: Keep in mind that these are not for secure systems and remember to start and enable the service
+rngd.service
 
--"https://wiki.archlinux.org/index.php/systemd" just helpful
+=== NTFS partitions support
+*Source*: https://wiki.archlinux.org/index.php/NTFS-3G[link] +
+Install `ntfs-3g`
+
+=== Listing all installed packages
+With apt/apt-get: `apt list --installed` +
+With pacman: `pacman -Qqe` +
+With xbps: `xbps-query -m` +
+
+=== Changing the default shell
+* `chsh -l` list all installed shells and respective path
+* `chsh -s <path-to-shell>` set the shell for the current user
+
+=== Changing keyboard layout
+*Source*: https://superuser.com/questions/1147320/how-to-change-keyboard-layout-in-i3[link] +
+In a tty (no graphical envirnment line ssh) type: `layout <layout>` +
+In a graphical environment (or terminal emulator) type: `setxkbmap <layout>`
 
 -To run .jar files in cli you must use "java -jar"
 
--To list all partitions "sudo fdisk -l"
+=== Disk and volume info
+Graphical::
+* `gparted` graphical tool for managing disks and partitions
+Terminal::
+Partitioning tools:::
+* `fdisk`
+* `parted`
+Listing drives and mount points:::
+* `fdisk -l` more info
+* `lsblk`
+Listing drive UUIDs:::
+* `blkid`
 
--To list all partition UUIDs "sudo blkid"
+=== Automatically mount volumes
+Install `udevil` and start `devmon` at login/boot
 
--Change default file openers:
-	Source: https://wiki.archlinux.org/index.php/XDG_MIME_Applications
-	create a file (if not present) in .config called mimeapps.list
-	search your file extension in https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
-	add or modify the entry to that mimetype to be opened with the desired app.desktop
-	IF app.desktop IS NOT PRESENT:
-		look again in /usr/share/applications
-		if it is not present make one and put it into:
-			~/.local/share/applications/
-		with the format:
-			[Desktop Entry]
-			Name=Xpdf
-			Comment=Views Adobe PDF (acrobat) files
-			Exec=xpdf %f
-			Terminal=false
-			Type=Application
-			Icon=xpdf
-			Categories=Office;
-			MimeType=application/pdf;
-		NOTE: Exec= are the execution parameters
+=== Check disk health (if available)
+Install `smartmontools`, then check the drive's compatibility with
+.... 
+smartctl -c /dev/sdX
+....
+Then either run a short test 
+....
+smartctl -t short /dev/sdX
+....
+Or a long test
+....
+smartctl -t long /dev/sdX
+....
+lastly run `smartctl -H /dev/sdX` to get the results
 
--To check a disk's health you need "smartmontools", first check system compatibility with "sudo smartctl -c /dev/sdX"
-  then either do a short test "sudo smartctl -t short /dev/sdX" or a long test "sudo smartctl -t long /dev/sdX"
-  lastly do "sudo smartctl -H /dev/sdX" to get the results
+=== Change default file openers
+*Source*: https://wiki.archlinux.org/index.php/XDG_MIME_Applications[link]
+. Create a file (if not present) in `$HOME/.config` called `mimeapps.list`
+. Search your file extension in https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types[link]
+. Add or modify the entry to that mimetype to be opened with the desired `<applications>.desktop`
+*IF* `<application>.desktop` *IS NOT PRESENT*:
+. Look again in `/usr/share/applications`
+. If it is not present make one and put it into: `~/.local/share/applications/` +
+with the format:
 
--Recompiling compilers for zerynth:
-  If facing compiling errors in zerynth, manually recompile the compiler for the board in ""~/.zerynth2/sys"
-  for example replacing the xtensa-lx106 compiler (esp8266) goes:
-    1-Move the old compiler folder somewhere safe (~/.zerynth2/sys/xtensa-lx106)
-    2-Clone and compile (as standalone) new compiler in a temporary folder, guide here -> "http://domoticx.com/sdk-esp8266-xtensa-architecture-toolchain/"
-    3-Move the newly created compiler folder (xtensa-lx106-elf) in ~/.zerynth2/sys and rename it as the original one (xtensa-lx106/)
-    4-Copy the old package.json in the new compiler folder
-  Better yet is to wait for an official fix and report the bug on the troubleshooting section
-  Also the same thing has to be done with the xtensa-lx6 compiler (esp32)
-  "https://dl.espressif.com/doc/esp-idf/latest/get-started/linux-setup.html"
+	[Desktop Entry]
+	Name=Xpdf
+	Comment=Views Adobe PDF (acrobat) files
+	Exec=xpdf %f
+	Terminal=false
+	Type=Application
+	Icon=xpdf
+	Categories=Office;
+	MimeType=application/pdf;
 
--Various permission errors:
-  Arduino permissions:
-    Source: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/
-    "ls -la /dev/tty*" and see which group TTYs are in, then add yourself to that group:
-    "usermod -a -G examplegroup exampleusername" or just use "$USER" to add current user, then reboot.
-  Wireshark permissions:
-    "usermod -a -G wireshark $USER"
-  Pen drive in read only:
-    Refers to: https://www.youtube.com/watch?v=F4lAlb74mGs
-    unmount the pen drive (4exmpl /dev/sdb1)
-    type as superuser "dosfsck -a /dev/sdb1"
-    remount
-    profit
+*NOTE*: `Exec=` are the execution parameters (-b, -l, etc.)
 
--Arduino not starting:
-  Try installing "arduino-avr-core" package
+=== Recompiling compilers for zerynth
+If you are facing compiling errors in zerynth, one option is to manually
+recompile the compiler for the board/platform. Compilers are locarted at
+`~/.zerynth2/sys` +
+For example to replace the `xtensa-lx106` compiler: (esp8266)
+. Move the old compiler folder (located at `~/.zerynth2/sys/xtensa-lx106`) somewhere safe
+. Clone and compile (as standalone) new compiler in a temporary folder, guide here 
+http://domoticx.com/sdk-esp8266-xtensa-architecture-toolchain/[link]
+. Move the fresh compiler folder (xtensa-lx106-elf) in `~/.zerynth2/sys` and rename it as the original one (xtensa-lx106/)
+. Copy the old package.json in the new compiler folder
 
--Cannot scroll down in VIM on st:
-    one solution is to add "set ttymouse=sgr" to your .vimrc
+*NOTE*: Better yet is to wait for an official fix and report the bug on the troubleshooting section +
+Link for the `xtensa-lx6` compiler: (esp32)
+https://dl.espressif.com/doc/esp-idf/latest/get-started/linux-setup.html[link]
 
--DEL key not working in st:
-	source: https://www.reddit.com/r/archlinux/comments/8w4unu/setting_up_the_delete_key_in_st/
-	add: tput smkx
-	in your zshrc or eqiuvalent
+=== Various permission errors
+Arduino permissions::
+*Source*: https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/[link] +
+`ls -la /dev/tty*` and see which group TTYs are in, then add yourself to that group: +
+`usermod -a -G <group> <user>` or just use `$USER` to add current user, then reboot.
+Wireshark permissions::
+....
+usermod -a -G wireshark $USER
+....
+Pen drive in read only::
+*Source*: https://www.youtube.com/watch?v=F4lAlb74mGs[link] +
+. Unmount the pen drive (`/dev/sdXx`)
+. Run `dosfsck -a /dev/sdXx`
+. Remount
 
--Theming gnome:
-  download the theme packages at "https://www.gnome-look.org/" and unzip them
-  then depending if it is an icon theme or an normal theme place them in
-    "/usr/share/icons" or "/usr/share/themes" accordingly
+=== Cannot scroll down in VIM on st
+Add `set ttymouse=sgr` to your .vimrc
 
--Printing documents:
-  Refers to: https://wiki.archlinux.org/index.php/CUPS#Installation
-  Install the "cups" package then start and enable it
-  To start a print use whatever printing program you have
-  if you do not have a print manager program you can always open up the web interface in your browser at:
-  	localhost:631
-  NOTE: you might need to add printers and to do so, in some cases like for KDE, you'll need to be logged as root
+=== DEL key not working in st
+*source*: https://www.reddit.com/r/archlinux/comments/8w4unu/setting_up_the_delete_key_in_st/[link] +
+Add `tput smkx` in your zshrc/bashrc or equivalent
 
--Adding executables and shortcuts:
-  Refers to:
-    https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path
-    https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere
-  You have to add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
-  Quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
-  If you want to change it permanently add export PATH=$PATH:</path/to/file> to your ~/.bashrc file (just at the end is fine)."
+=== Theming gnome
+download the themes packages https://www.gnome-look.org/[here] and unzip them
+then depending if it is an icon theme or an normal theme place them in
+`/usr/share/icons` or `/usr/share/themes` accordingly
+
+=== Printing documents
+*Source*: https://wiki.archlinux.org/index.php/CUPS#Installation[link] +
+Install `cups` then start and enable the cupsd service/daemon or socket if you want
+on-demand activation. +
+To add and configure a printer either do it in your print manager or trough the cups web interface
+at the address: `localhost:631` +
+*NOTE*: adding and modifying printers requires administator (root) permissions, so 
+in the web interface, when asked, insert the root credentials
+
+=== Adding executables and shortcuts
+*Sources*::
+* https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path[1]
+* https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere[2]
+
+You have to add them to your $PATH, example: "export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin"
+Quote "If you just type export PATH=$PATH:</path/to/file> at the command line it will only last for the length of the session.
+If you want to change it permanently add export PATH=$PATH:</path/to/file> to your ~/.bashrc file (just at the end is fine)."
 
 -Eagle CAD dark theme fix (KDE):
   Refers to:
@@ -498,6 +518,15 @@
 
 
 # NETWORK SECTION
+
+-Network managers:
+	NetworkManager: default in many distros pretty good but resorce heavy (also depends on systemd?)
+		void: https://docs.voidlinux.org/config/network/networkmanager.html
+		arch: https://wiki.archlinux.org/index.php/NetworkManager
+	Connman: small and fast, does all you need and doesn't hog on resources and has vpn support
+		void: https://wiki.voidlinux.org/Connman
+		arch: https://wiki.archlinux.org/index.php/ConnMan
+	Wicd: outdated by now and written in python 2.7, still pretty good for simple configurations
 
 -Gathering information on network cards ie IP, MAC, status, etc.
   With ifconfig, just type "ifconfig" and it will give:

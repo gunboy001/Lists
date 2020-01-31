@@ -37,7 +37,7 @@
 		http://www.clifford.at/icestorm/
 	symbiflow (open souce fpga development):
 		https://symbiflow.github.io/#hero
-	nextptr (oss gui router for ICE40 fpgas an more):
+	nextpnr (oss gui router for ICE40 fpgas an more):
 		https://github.com/YosysHQ/nextpnr
 -All 4chan banners:
 	https://imgur.com/a/40bUo
